@@ -1,0 +1,96 @@
+/* ============================================
+   GLOBAL.CSS — Variables, tipografía y base
+   Top Laces · 2026
+   ============================================ */
+
+/* ---------- Design Tokens ---------- */
+:root {
+  /* Colores principales */
+  --dark: #0F172A;
+  --accent: #3B82F6;
+  --accent-hover: #2563EB;
+  --muted: #E2E8F0;
+  --surface: #F8FAFC;
+  --paper: #FFFFFF;
+
+  /* Colores de soporte */
+  --text-secondary: rgba(15, 23, 42, 0.65);
+  --border-light: rgba(15, 23, 42, 0.08);
+  --border-medium: rgba(15, 23, 42, 0.12);
+
+  /* Radii */
+  --radius-sm: 0.75rem;
+  --radius-md: 1.25rem;
+  --radius-lg: 1.75rem;
+  --radius-soft: 2rem;
+  --radius-xl: 2.2rem;
+  --radius-2xl: 2.5rem;
+  --radius-3xl: 2.75rem;
+  --radius-full: 999px;
+
+  /* Sombras */
+  --shadow-subtle: 0 4px 16px rgba(15, 23, 42, 0.04);
+  --shadow-soft: 0 16px 40px rgba(15, 23, 42, 0.08);
+  --shadow-hover: 0 24px 60px rgba(15, 23, 42, 0.14);
+  --shadow-luxe: 0 30px 90px rgba(15, 23, 42, 0.18);
+
+  /* Easing */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Spacing (extra, para CSS custom) */
+  --section-gap: clamp(4rem, 8vw, 7rem);
+}
+
+/* ---------- Base ---------- */
+body {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(59, 130, 246, 0.04), transparent 40%),
+    radial-gradient(circle at 80% 100%, rgba(59, 130, 246, 0.03), transparent 40%),
+    var(--surface);
+  color: var(--dark);
+}
+
+/* ---------- Utilidades ---------- */
+.container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+/* Separador decorativo entre secciones */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.25) 30%,
+    rgba(59, 130, 246, 0.25) 70%,
+    transparent
+  );
+  border: none;
+  margin: 0;
+}
+
+/* ---------- Selection ---------- */
+::selection {
+  background: rgba(59, 130, 246, 0.18);
+  color: var(--dark);
+}
+
+/* ---------- Scrollbar (WebKit) ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}

@@ -1,0 +1,95 @@
+/* ============================================
+   ANIMATIONS.CSS — Keyframes y clases animadas
+   Top Laces · 2026
+   ============================================ */
+
+/* ---------- Fade-up on scroll ---------- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 800ms var(--ease), transform 800ms var(--ease);
+}
+
+.fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay helpers */
+.fade-up-d1 { transition-delay: 80ms; }
+.fade-up-d2 { transition-delay: 160ms; }
+.fade-up-d3 { transition-delay: 240ms; }
+.fade-up-d4 { transition-delay: 320ms; }
+.fade-up-d5 { transition-delay: 400ms; }
+.fade-up-d6 { transition-delay: 480ms; }
+.fade-up-d7 { transition-delay: 560ms; }
+.fade-up-d8 { transition-delay: 640ms; }
+.fade-up-d9 { transition-delay: 720ms; }
+.fade-up-d10 { transition-delay: 800ms; }
+
+/* ---------- Marquee ---------- */
+.marquee-track {
+  animation: marquee 24s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---------- Parallax hero subtle float ---------- */
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+.hero-float {
+  animation: heroFloat 6s var(--ease) infinite;
+}
+
+/* ---------- Pulse glow ---------- */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.3); }
+  50%      { box-shadow: 0 0 24px 8px rgba(59, 130, 246, 0.12); }
+}
+
+.pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* ---------- Slide in from left ---------- */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 600ms var(--ease) both;
+}
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .fade-up,
+  .soft-card,
+  .tilt-card,
+  .magnetic,
+  .hero-float,
+  .pulse-glow,
+  .shimmer-card::after,
+  .slide-in-left {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .fade-up {
+    opacity: 1 !important;
+  }
+}

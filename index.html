@@ -11,6 +11,11 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap"
     rel="stylesheet">
+  <!-- CSS Modular -->
+  <link rel="stylesheet" href="assets/styles/reset.css">
+  <link rel="stylesheet" href="assets/styles/global.css">
+  <link rel="stylesheet" href="assets/styles/components.css">
+  <link rel="stylesheet" href="assets/styles/animations.css">
   <script>
     tailwind.config = {
       theme: {
@@ -37,98 +42,6 @@
       }
     }
   </script>
-  <style>
-    :root {
-      --dark: #0F172A;
-      --accent: #3B82F6;
-      --muted: #E2E8F0;
-      --surface: #F8FAFC;
-      --paper: #FFFFFF;
-      --radius-soft: 2rem;
-      --radius-xl: 2.75rem;
-      --shadow-custom: 0 16px 40px rgba(15, 23, 42, 0.08);
-      --shadow-hover: 0 24px 60px rgba(15, 23, 42, 0.14);
-      --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.55), transparent 28%), var(--surface);
-      color: var(--dark);
-    }
-
-    .glass {
-      backdrop-filter: blur(18px);
-      background: rgba(255, 255, 255, 0.7);
-    }
-
-    .soft-card {
-      border-radius: var(--radius-soft);
-      transition: transform 700ms var(--ease), box-shadow 700ms var(--ease), border-color 400ms ease, background-color 400ms ease;
-      will-change: transform;
-    }
-
-    .soft-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .marquee-track {
-      animation: marquee 24s linear infinite;
-    }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 800ms var(--ease), transform 800ms var(--ease);
-    }
-
-    .fade-up.in-view {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .tilt-card {
-      transform-style: preserve-3d;
-      transition: transform 220ms ease-out, box-shadow 500ms var(--ease);
-    }
-
-    .magnetic {
-      transition: transform 280ms var(--ease), background-color 280ms ease, color 280ms ease;
-    }
-
-    .nav-scrolled {
-      background: rgba(245, 241, 227, 0.78);
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-      border-color: rgba(15, 23, 42, 0.08);
-    }
-
-    @keyframes marquee {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-
-      .marquee-track,
-      .fade-up,
-      .soft-card,
-      .tilt-card,
-      .magnetic {
-        animation: none !important;
-        transition: none !important;
-        transform: none !important;
-      }
-    }
-  </style>
 </head>
 
 <body class="font-sans antialiased">
@@ -358,96 +271,23 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <section id="coleccion" class="bg-paper py-16 md:py-24 fade-up">
       <div class="mx-auto max-w-7xl px-4 md:px-8">
-        <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div class="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p class="text-xs font-bold uppercase tracking-[0.3em] text-accent">Colección</p>
-            <h2 class="mt-3 text-3xl font-extrabold tracking-tight md:text-5xl">Sneakers que se sienten
-              exclusivas.</h2>
+            <h2 class="mt-3 text-3xl font-extrabold tracking-tight md:text-5xl">Sneakers que se sienten exclusivas.</h2>
           </div>
-          <a href="#"
-            class="text-sm font-bold text-dark underline decoration-accent decoration-2 underline-offset-4">Ver
-            todo</a>
+          <a href="#" class="text-sm font-bold text-dark underline decoration-accent decoration-2 underline-offset-4">Ver todo</a>
         </div>
-
-        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          <article
-            class="soft-card overflow-hidden rounded-[2.2rem] border border-dark/10 bg-surface shadow-[0_18px_45px_rgba(15, 23, 42,0.08)] fade-up">
-            <div class="bg-[linear-gradient(180deg,#ffffff_0%,#F8FAFC_100%)] p-6">
-              <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=80"
-                alt="Sneaker blanco premium" width="900" height="700" loading="lazy" class="h-52 w-full object-contain">
-            </div>
-            <div class="p-6">
-              <p class="text-xs font-bold uppercase tracking-[0.28em] text-accent">Top Laces</p>
-              <h3 class="mt-2 text-xl font-extrabold">Vertex Low</h3>
-              <p class="mt-2 text-sm text-dark/65">Minimalismo técnico y acabados premium.</p>
-              <div class="mt-5 flex items-center justify-between">
-                <span class="text-lg font-extrabold">159 €</span>
-                <button
-                  class="rounded-full border border-dark/10 bg-paper px-4 py-2 text-sm font-bold transition hover:border-accent hover:text-accent">Comprar</button>
-              </div>
-            </div>
-          </article>
-
-          <article
-            class="soft-card overflow-hidden rounded-[2.2rem] border border-dark/10 bg-surface shadow-[0_18px_45px_rgba(15, 23, 42,0.08)] fade-up">
-            <div class="bg-[linear-gradient(180deg,#E2E8F0_0%,#F8FAFC_100%)] p-6">
-              <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=900&q=80"
-                alt="Sneaker beige y negra" width="900" height="700" loading="lazy" class="h-52 w-full object-contain">
-            </div>
-            <div class="p-6">
-              <p class="text-xs font-bold uppercase tracking-[0.28em] text-accent">Top Laces</p>
-              <h3 class="mt-2 text-xl font-extrabold">Monarch Elite</h3>
-              <p class="mt-2 text-sm text-dark/65">Volumen limpio con presencia de pasarela.</p>
-              <div class="mt-5 flex items-center justify-between">
-                <span class="text-lg font-extrabold">199 €</span>
-                <button
-                  class="rounded-full border border-dark/10 bg-paper px-4 py-2 text-sm font-bold transition hover:border-accent hover:text-accent">Comprar</button>
-              </div>
-            </div>
-          </article>
-
-          <article
-            class="soft-card overflow-hidden rounded-[2.2rem] border border-dark/10 bg-surface shadow-[0_18px_45px_rgba(15, 23, 42,0.08)] fade-up">
-            <div class="bg-[linear-gradient(180deg,#3B82F6_0%,#bce4e9_100%)] p-6">
-              <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&w=900&q=80"
-                alt="Sneaker con detalles turquesa" width="900" height="700" loading="lazy"
-                class="h-52 w-full object-contain">
-            </div>
-            <div class="p-6">
-              <p class="text-xs font-bold uppercase tracking-[0.28em] text-accent">Top Laces</p>
-              <h3 class="mt-2 text-xl font-extrabold">Aqua Pulse</h3>
-              <p class="mt-2 text-sm text-dark/65">La pieza de acento dentro de la paleta de marca.</p>
-              <div class="mt-5 flex items-center justify-between">
-                <span class="text-lg font-extrabold">179 €</span>
-                <button
-                  class="rounded-full border border-dark/10 bg-paper px-4 py-2 text-sm font-bold transition hover:border-accent hover:text-accent">Comprar</button>
-              </div>
-            </div>
-          </article>
-
-          <article
-            class="soft-card overflow-hidden rounded-[2.2rem] border border-dark/10 bg-surface shadow-[0_18px_45px_rgba(15, 23, 42,0.08)] fade-up">
-            <div class="bg-[linear-gradient(180deg,#0F172A_0%,#5b5b5b_100%)] p-6">
-              <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=900&q=80"
-                alt="Sneaker negra de alta gama" width="900" height="700" loading="lazy"
-                class="h-52 w-full object-contain">
-            </div>
-            <div class="p-6">
-              <p class="text-xs font-bold uppercase tracking-[0.28em] text-accent">Top Laces</p>
-              <h3 class="mt-2 text-xl font-extrabold">Noir Phantom</h3>
-              <p class="mt-2 text-sm text-dark/65">Oscura, pulida y pensada para destacar.</p>
-              <div class="mt-5 flex items-center justify-between">
-                <span class="text-lg font-extrabold">209 €</span>
-                <button
-                  class="rounded-full border border-dark/10 bg-paper px-4 py-2 text-sm font-bold transition hover:border-accent hover:text-accent">Comprar</button>
-              </div>
-            </div>
-          </article>
-        </div>
+        <div id="collection-tabs" class="mb-10 flex flex-wrap gap-2"></div>
+        <div id="collection-grid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-4"></div>
       </div>
     </section>
+
+    <hr class="section-divider">
 
     <section id="experiencia" class="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 fade-up">
       <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
@@ -577,6 +417,93 @@
         button.style.transform = 'translate(0,0)';
       });
     });
+
+    /* ---- Collection: Dynamic cards from nombres.txt ---- */
+    const sneakers = [
+      { name:'Jordan Retro 1 Chicago Lost and Found', brand:'Nike / Jordan', cat:'nike', price:'450 €', img:'assets/img/jordanChica.png', gradient:'#8B0000,#1a1a1a', desc:'La leyenda que lo empezó todo, regresa con acabado vintage.' },
+      { name:'Jordan Retro 1 Obsidian High', brand:'Nike / Jordan', cat:'nike', price:'320 €', img:'https://images.stockx.com/images/Air-Jordan-1-Retro-High-Obsidian-UNC.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#1e3a5f,#0F172A', desc:'Tonos obsidiana y university blue en una silueta inmortal.' },
+      { name:'Jordan Retro 1 Low Travis Scott x Fragment', brand:'Nike / Jordan', cat:'nike', price:'1.200 €', img:'https://images.stockx.com/images/Air-Jordan-1-Retro-Low-OG-SP-Fragment-x-Travis-Scott.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#2d4a7a,#0a1628', desc:'Triple collab legendaria. Fragment x Cactus Jack x Jordan.' },
+      { name:'Jordan Retro 4 Yellow Thunder', brand:'Nike / Jordan', cat:'nike', price:'380 €', img:'assets/img/jordantv.png', gradient:'#d4a017,#1a1a1a', desc:'Thunder amarillo sobre negro: contraste icónico de los 90.' },
+      { name:'Nike AF1 x Louis Vuitton', brand:'Nike / Jordan', cat:'nike', price:'2.750 €', img:'assets/img/af1lv.png', gradient:'#3d2b1f,#0F172A', desc:'Virgil Abloh fusionó el lujo parisino con el streetwear.' },
+      { name:'Yeezy 350 Zebra', brand:'Yeezy / Adidas', cat:'yeezy', price:'280 €', img:'assets/img/yeezy350.png', gradient:'#e0e0e0,#1a1a1a', desc:'El patrón zebra que definió una era del sneaker game.' },
+      { name:'Adidas Forum Bad Bunny Rosas', brand:'Yeezy / Adidas', cat:'yeezy', price:'350 €', img:'https://images.stockx.com/images/adidas-Forum-Low-Bad-Bunny-Pink-Easter-Egg.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#e8a0bf,#f5d5e0', desc:'Bad Bunny x Adidas: rosa pastel con actitud latina.' },
+      { name:'Adidas x Pharrell Williams', brand:'Yeezy / Adidas', cat:'yeezy', price:'220 €', img:'https://images.stockx.com/images/adidas-NMD-HU-Pharrell-Human-Race-Yellow.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#f5c518,#ff8c00', desc:'Human Race: color vibrante y mensaje positivo.' },
+      { name:'Yeezy Slide Bone', brand:'Yeezy / Adidas', cat:'yeezy', price:'160 €', img:'assets/img/slideyeeze.png', gradient:'#d4c9a8,#f0ead6', desc:'Minimalismo total. La slide que conquistó el streetwear.' },
+      { name:'Yeezy Foam Runner Onyx', brand:'Yeezy / Adidas', cat:'yeezy', price:'190 €', img:'https://images.stockx.com/images/adidas-Yeezy-Foam-RNNR-Onyx.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#1a1a1a,#333333', desc:'Forma alienígena, comodidad terrestre. Foam futurista.' },
+      { name:'Air Jordan 1 x Off-White', brand:'Off-White', cat:'offwhite', price:'5.500 €', img:'assets/img/jordanOff.png', gradient:'#e8e8e8,#b0b0b0', desc:'La deconstrucción que cambió la industria para siempre.' },
+      { name:'Air Max 90 x Off-White', brand:'Off-White', cat:'offwhite', price:'1.800 €', img:'https://images.stockx.com/images/Nike-Air-Max-90-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#f5f0e1,#d4c9a8', desc:'Virgil reimaginó el clásico runner con su visión única.' },
+      { name:'Air Presto x Off-White', brand:'Off-White', cat:'offwhite', price:'2.200 €', img:'https://images.stockx.com/images/Nike-Air-Presto-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#1a1a1a,#444', desc:'Presto deconstruido: transparencia y etiquetas icónicas.' },
+      { name:'Air Vapormax x Off-White', brand:'Off-White', cat:'offwhite', price:'1.600 €', img:'https://images.stockx.com/images/Nike-Air-VaporMax-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#c8d6e5,#dfe6ed', desc:'Cámara de aire expuesta, diseño transparente radical.' },
+      { name:'Blazer Mid x Off-White', brand:'Off-White', cat:'offwhite', price:'1.400 €', img:'https://images.stockx.com/images/Nike-Blazer-Mid-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#f5f5f5,#e0e0e0', desc:'El Blazer vintage llevado al arte contemporáneo.' },
+      { name:'Converse Chuck Taylor x Off-White', brand:'Off-White', cat:'offwhite', price:'1.100 €', img:'https://images.stockx.com/images/Converse-Chuck-Taylor-All-Star-Vulcanized-Hi-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#f8f4e3,#e8dcc8', desc:'Chuck Taylor deconstruido: lona cruda y costuras vistas.' },
+      { name:'Zoom Fly SP x Off-White', brand:'Off-White', cat:'offwhite', price:'900 €', img:'https://images.stockx.com/images/Nike-Zoom-Fly-Off-White-Pink.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#f8c8d4,#f0a0b8', desc:'Rendimiento running con estética de pasarela.' },
+      { name:'Air Force 1 Low x Off-White', brand:'Off-White', cat:'offwhite', price:'2.000 €', img:'https://images.stockx.com/images/Nike-Air-Force-1-Low-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#f0ead6,#d4c9a8', desc:'El AF1 reimaginado con la marca registrada de Virgil.' },
+      { name:'React Hyperdunk x Off-White', brand:'Off-White', cat:'offwhite', price:'750 €', img:'https://images.stockx.com/images/Nike-React-Hyperdunk-2017-Flyknit-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#1a1a1a,#2d2d2d', desc:'Performance basketball con el ADN de Off-White.' },
+      { name:'Air Max 97 x Off-White', brand:'Off-White', cat:'offwhite', price:'1.500 €', img:'https://images.stockx.com/images/Nike-Air-Max-97-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#c0c0c0,#e8e8e8', desc:'Silver bullet deconstruida con suela traslúcida.' }
+    ];
+
+    const categories = [
+      { id:'all', label:'Todos' },
+      { id:'nike', label:'Nike / Jordan' },
+      { id:'yeezy', label:'Yeezy / Adidas' },
+      { id:'offwhite', label:'Off-White' }
+    ];
+
+    const tabsEl = document.getElementById('collection-tabs');
+    const gridEl = document.getElementById('collection-grid');
+
+    categories.forEach((c, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'tab-btn' + (i === 0 ? ' active' : '');
+      btn.textContent = c.label;
+      btn.dataset.cat = c.id;
+      btn.addEventListener('click', () => filterCollection(c.id, btn));
+      tabsEl.appendChild(btn);
+    });
+
+    function renderCards(list) {
+      gridEl.innerHTML = '';
+      list.forEach((s, i) => {
+        const [g1, g2] = s.gradient.split(',');
+        const isDark = isColorDark(g1);
+        const card = document.createElement('article');
+        card.className = `soft-card shimmer-card overflow-hidden rounded-[2.2rem] border border-dark/10 bg-surface shadow-[0_18px_45px_rgba(15,23,42,0.08)] fade-up fade-up-d${Math.min(i + 1, 10)}`;
+        card.innerHTML = `
+          <div class="relative overflow-hidden p-6" style="background:linear-gradient(180deg,${g1} 0%,${g2} 100%)">
+            <img src="${s.img}" alt="${s.name}" loading="lazy" class="product-card-img h-52 w-full object-contain drop-shadow-xl">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <span class="brand-pill bg-accent/10 text-accent">${s.brand}</span>
+            </div>
+            <h3 class="mt-3 text-lg font-extrabold leading-tight">${s.name}</h3>
+            <p class="mt-2 text-sm text-dark/60 leading-relaxed">${s.desc}</p>
+            <div class="mt-5 flex items-center justify-between border-t border-dark/5 pt-4">
+              <span class="text-lg font-extrabold">${s.price}</span>
+              <button class="magnetic rounded-full border border-dark/10 bg-paper px-4 py-2 text-sm font-bold transition hover:border-accent hover:text-accent">Comprar</button>
+            </div>
+          </div>`;
+        gridEl.appendChild(card);
+      });
+      document.querySelectorAll('#collection-grid .fade-up').forEach(el => observer.observe(el));
+    }
+
+    function filterCollection(cat, activeBtn) {
+      tabsEl.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      activeBtn.classList.add('active');
+      const filtered = cat === 'all' ? sneakers : sneakers.filter(s => s.cat === cat);
+      renderCards(filtered);
+    }
+
+    function isColorDark(hex) {
+      const c = hex.replace('#','');
+      const r = parseInt(c.substring(0,2),16);
+      const g = parseInt(c.substring(2,4),16);
+      const b = parseInt(c.substring(4,6),16);
+      return (r * 299 + g * 587 + b * 114) / 1000 < 128;
+    }
+
+    renderCards(sneakers);
   </script>
 </body>
 
