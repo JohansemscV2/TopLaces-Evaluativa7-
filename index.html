@@ -1,166 +1,240 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KickMarket | Sneakers Marketplace</title>
+  <title>Top Laces - Sneakers de lujo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#0F172A',
+            accent: '#3B82F6',
+            muted: '#E2E8F0',
+            surface: '#F8FAFC',
+            paper: '#FFFFFF'
+          },
+          fontFamily: {
+            sans: ['Manrope', 'sans-serif'],
+            display: ['Cormorant Garamond', 'serif']
+          },
+          boxShadow: {
+            soft: '0 20px 60px rgba(15, 23, 42,0.12)',
+            luxe: '0 30px 90px rgba(15, 23, 42,0.18)'
+          },
+          letterSpacing: {
+            luxe: '0.18em'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --dark: #0F172A;
+      --accent: #3B82F6;
+      --muted: #E2E8F0;
+      --surface: #F8FAFC;
+      --paper: #FFFFFF;
+      --radius-soft: 2rem;
+      --radius-xl: 2.75rem;
+      --shadow-custom: 0 16px 40px rgba(15, 23, 42, 0.08);
+      --shadow-hover: 0 24px 60px rgba(15, 23, 42, 0.14);
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.55), transparent 28%), var(--surface);
+      color: var(--dark);
+    }
+
+    .glass {
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .soft-card {
+      border-radius: var(--radius-soft);
+      transition: transform 700ms var(--ease), box-shadow 700ms var(--ease), border-color 400ms ease, background-color 400ms ease;
+      will-change: transform;
+    }
+
+    .soft-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .marquee-track {
+      animation: marquee 24s linear infinite;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 800ms var(--ease), transform 800ms var(--ease);
+    }
+
+    .fade-up.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tilt-card {
+      transform-style: preserve-3d;
+      transition: transform 220ms ease-out, box-shadow 500ms var(--ease);
+    }
+
+    .magnetic {
+      transition: transform 280ms var(--ease), background-color 280ms ease, color 280ms ease;
+    }
+
+    .nav-scrolled {
+      background: rgba(245, 241, 227, 0.78);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      border-color: rgba(15, 23, 42, 0.08);
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .marquee-track,
+      .fade-up,
+      .soft-card,
+      .tilt-card,
+      .magnetic {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+      }
+    }
+  </style>
 </head>
-<body>
 
-  <header class="topbar">
-    <div class="container nav">
-      <a href="#" class="logo">
-        <span class="logo-box">TL</span>
-        <span>Top-Laces</span>
-      </a>
+<body class="font-sans antialiased">
+  <a href="#contenido"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-dark focus:px-4 focus:py-2 focus:text-paper">Saltar
+    al contenido</a>
 
-      <nav class="menu">
-        <a href="#">Novedades</a>
-        <a href="#">Sneakers</a>
-        <a href="#">Marcas</a>
-        <a href="#">Vender</a>
-      </nav>
-
-      <div class="nav-actions">
-        <button class="btn btn-dark">Iniciar sesión</button>
-        <button class="btn btn-green">Registrarse</button>
+  <header id="site-header"
+    class="sticky top-0 z-40 border-b border-dark/10 bg-surface/82 backdrop-blur-xl transition-all duration-500">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8">
+      <div class="flex items-center gap-10">
+        <a href="#" class="flex items-center gap-3" aria-label="Top Laces inicio">
+          <svg viewBox="0 0 64 64" class="h-10 w-10 text-dark" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <rect x="7" y="7" width="50" height="50" rx="16" stroke="currentColor" stroke-width="4" />
+            <path d="M20 22H44" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+            <path d="M22 32H42" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+            <path d="M24 42H40" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+          </svg>
+          <div>
+            <p class="text-[11px] font-semibold uppercase tracking-luxe text-accent">Luxury sneakers</p>
+            <p class="text-xl font-extrabold tracking-tight">Top Laces</p>
+          </div>
+        </a>
+        <nav class="hidden items-center gap-7 text-sm font-semibold lg:flex">
+          <a href="#novedades" class="transition hover:text-accent">Novedades</a>
+          <a href="#hombre" class="transition hover:text-accent">Hombre</a>
+          <a href="#mujer" class="transition hover:text-accent">Mujer</a>
+          <a href="#coleccion" class="transition hover:text-accent">Colección</a>
+          <a href="#experiencia" class="transition hover:text-accent">Experiencia</a>
+        </nav>
+      </div>
+      <div class="flex items-center gap-3">
+        <button
+          class="hidden rounded-full border border-dark/10 bg-paper px-4 py-2 text-sm font-semibold md:inline-flex">Buscar</button>
+        <button
+          class="magnetic rounded-full bg-dark px-5 py-2.5 text-sm font-semibold text-paper transition hover:bg-accent">Comprar</button>
       </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-text">
-          <p class="eyebrow">MARKETPLACE DE SNEAKERS</p>
-          <h1>Compra y vende zapatillas al precio real del mercado</h1>
-          <p class="hero-desc">
-            Descubre pares exclusivos, mira la última venta, la puja más alta
-            y la oferta más baja en una sola plataforma.
-          </p>
-
-          <div class="search-box">
-            <input type="text" placeholder="Busca Jordan, Nike, Adidas..." />
-            <button>Buscar</button>
-          </div>
-
-          <div class="hero-stats">
-            <div class="stat">
-              <span class="stat-number">12K+</span>
-              <span class="stat-label">Ventas hoy</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">4.8/5</span>
-              <span class="stat-label">Valoración</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">100%</span>
-              <span class="stat-label">Verificación</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-card">
-          <div class="shoe-card">
-            <div class="badge">Más buscada</div>
-            <img src="./assets/img/jordanChica.png" alt="Zapatilla destacada roja" />
-            <h3>Nike Jordan chicago Retro 1</h3>
-            <p class="sku">SKU: KM-2026-RED</p>
-
-            <div class="market-grid">
-              <div>
-                <span>Última venta</span>
-                <strong>280 €</strong>
-              </div>
-              <div>
-                <span>Puja más alta</span>
-                <strong>310 €</strong>
-              </div>
-              <div>
-                <span>Oferta más baja</span>
-                <strong>252 €</strong>
-              </div>
-            </div>
-
-            <div class="card-actions">
-              <button class="btn btn-green full">Comprar ahora</button>
-              <button class="btn btn-light full">Hacer oferta</button>
-            </div>
-          </div>
-        </div>
+  <main id="contenido">
+    <section class="relative overflow-hidden bg-[#0F172A] text-paper">
+      <div class="absolute inset-0">
+        <img
+          src="https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_617,c_limit/0d2c887d-787f-4db3-800e-d3e953b7a80a/nike-just-do-it.jpg"
+          alt="Zapatilla destacada en ambiente oscuro" width="828" height="1240" loading="lazy"
+          class="h-full w-full object-cover opacity-25">
       </div>
-    </section>
-
-    <section class="brands">
-      <div class="container brands-row">
-        <span>Nike</span>
-        <span>Jordan</span>
-        <span>Adidas</span>
-        <span>New Balance</span>
-        <span>Puma</span>
-        <span>ASICS</span>
+      <div
+        class="absolute inset-0 bg-[linear-gradient(90deg,rgba(15, 23, 42,0.94)_0%,rgba(15, 23, 42,0.82)_46%,rgba(15, 23, 42,0.48)_100%)]">
       </div>
-    </section>
-
-    <section class="featured">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="section-tag">DESTACADOS</p>
-            <h2>Sneakers en tendencia</h2>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(59, 130, 246,0.18),transparent_26%)]">
+      </div>
+      <div
+        class="relative mx-auto grid min-h-[88vh] max-w-7xl items-center gap-10 px-4 py-16 md:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:py-24">
+        <div class="max-w-xl">
+          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.32em] text-muted/80">Top Laces</p>
+          <h1 class="text-4xl font-semibold leading-tight text-paper md:text-6xl">Sneakers de colección para
+            quienes saben lo que compran.</h1>
+          <p class="mt-5 text-base leading-7 text-paper/72 md:text-lg">Una tienda premium centrada en pares
+            icónicos, lanzamientos limitados y modelos con valor real dentro de la cultura sneaker.</p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#coleccion"
+              class="magnetic rounded-full bg-paper px-7 py-3 text-center text-sm font-semibold text-dark transition hover:bg-muted">Comprar
+              ahora</a>
+            <a href="#modelo-estrella"
+              class="magnetic rounded-full border border-paper/20 px-7 py-3 text-center text-sm font-semibold text-paper transition hover:bg-paper/10">Ver
+              modelo estrella</a>
           </div>
-          <a href="#" class="view-all">Ver todo</a>
+          <div class="mt-10 flex flex-wrap gap-6 border-t border-paper/10 pt-6 text-sm text-paper/70">
+            <span>Autenticidad verificada</span>
+            <span>Envío 24/48h</span>
+            <span>Pares limitados</span>
+          </div>
         </div>
 
-        <div class="product-grid">
-          <article class="product-card">
-            <img src="./assets/img/af1lv.png" alt="Sneaker blanca y roja" />
-            <div class="product-info">
-              <h3>Nike AF1 x Louis Vuitton</h3>
-              <p>Nike Rich</p>
-              <div class="price-row">
-                <span>Desde</span>
-                <strong>70.000 €</strong>
+        <div id="modelo-estrella" class="relative lg:pl-8">
+          <article
+            class="soft-card tilt-card overflow-hidden rounded-[2.75rem] border border-white/10 bg-white/5 shadow-luxe backdrop-blur-sm fade-up">
+            <div class="grid lg:grid-cols-[1.05fr_0.95fr]">
+              <div class="flex flex-col justify-between p-6 md:p-8">
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-[0.28em] text-accent">Modelo
+                    estrella</p>
+                  <h2 class="mt-4 text-3xl font-semibold text-paper md:text-4xl">Air Jordan 4</h2>
+                  <p class="mt-4 max-w-md text-sm leading-7 text-paper/68">Una de las siluetas más
+                    codiciadas del catálogo Jordan, reconocida por su lanzamiento original en 1989,
+                    su malla sobremoldeada y su peso cultural dentro del sneaker game.</p>
+                </div>
+                <div class="mt-8 flex items-end justify-between gap-4 border-t border-white/10 pt-5">
+                  <div>
+                    <p class="text-xs uppercase tracking-[0.22em] text-paper/45">Desde</p>
+                    <p class="mt-1 text-3xl font-bold text-paper">205 €</p>
+                  </div>
+                  <button
+                    class="magnetic rounded-full bg-accent px-5 py-3 text-sm font-semibold text-paper transition hover:bg-paper hover:text-dark">Añadir
+                    al carrito</button>
+                </div>
               </div>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <img src="./assets/img/jordanOff.png" alt="Sneaker deportiva blanca" />
-            <div class="product-info">
-              <h3>Jordan retro 1 x Off-white</h3>
-              <p>Jordan</p>
-              <div class="price-row">
-                <span>Desde</span>
-                <strong>2190 €</strong>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <img src="./assets/img/jordantv.png" alt="Sneaker negra y blanca" />
-            <div class="product-info">
-              <h3>Jordan travis Scott</h3>
-              <p>Jordan weed</p>
-              <div class="price-row">
-                <span>Desde</span>
-                <strong>189 €</strong>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <img src="./assets/img/slideyeeze.png" alt="Sneaker amarilla llamativa" />
-            <div class="product-info">
-              <h3>Adidas yeezy Slide</h3>
-              <p>Adidas nazi</p>
-              <div class="price-row">
-                <span>Desde</span>
-                <strong>150 €</strong>
+              <div
+                class="flex items-center justify-center bg-[linear-gradient(180deg,rgba(255,255,255,0.04)_0%,rgba(221,216,203,0.09)_100%)] p-6 md:p-8">
+                <img
+                  src="https://images.stockx.com/images/Air-Jordan-4-Retro-White-Cement-2025.jpg?fit=fill&bg=FFFFFF&w=1200&h=857&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1737726370"
+                  alt="Air Jordan 4 White Cement" width="1200" height="857" loading="lazy"
+                  class="w-full max-w-2xl drop-shadow-[0_30px_50px_rgba(0,0,0,0.55)]">
               </div>
             </div>
           </article>
@@ -168,58 +242,342 @@
       </div>
     </section>
 
-    <section class="market-info">
-      <div class="container market-layout">
-        <div class="info-text">
-          <p class="section-tag">CÓMO FUNCIONA</p>
-          <h2>Un sistema de compra y venta como bolsa de valores</h2>
-          <p>
-            Los compradores hacen ofertas y los vendedores publican su precio.
-            Cuando ambos coinciden, la venta se ejecuta.
-          </p>
-        </div>
-
-        <div class="steps">
-          <div class="step-card">
-            <span class="step-number">01</span>
-            <h3>Explora productos</h3>
-            <p>Busca por marca, modelo o talla y revisa el mercado actual.</p>
-          </div>
-          <div class="step-card">
-            <span class="step-number">02</span>
-            <h3>Compra o puja</h3>
-            <p>Compra al instante o lanza una oferta con el precio que quieras.</p>
-          </div>
-          <div class="step-card">
-            <span class="step-number">03</span>
-            <h3>Verificación</h3>
-            <p>El producto pasa control antes de llegar al comprador final.</p>
-          </div>
+    <section class="border-y border-dark/10 bg-paper py-4">
+      <div class="overflow-hidden">
+        <div
+          class="marquee-track flex min-w-max gap-16 px-4 text-xs font-extrabold uppercase tracking-[0.35em] text-dark/55">
+          <span>Top Laces curated selection</span><span>Exclusive drops</span><span>Luxury sneaker
+            culture</span><span>Top Laces curated selection</span><span>Exclusive drops</span><span>Luxury
+            sneaker culture</span><span>Top Laces curated selection</span><span>Exclusive drops</span>
         </div>
       </div>
     </section>
 
-    <section class="cta">
-      <div class="container cta-box">
+    <section id="novedades" class="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 fade-up">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
-          <p class="section-tag">EMPIEZA HOY</p>
-          <h2>Consigue tus próximas zapatillas favoritas</h2>
+          <p class="text-xs font-bold uppercase tracking-[0.3em] text-accent">Novedades</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight md:text-5xl">Últimos lanzamientos.</h2>
         </div>
-        <button class="btn btn-dark">Explorar catálogo</button>
+        <p class="max-w-2xl text-dark/65 text-lg">Descubre las siluetas más recientes que acaban de llegar a nuestra
+          bóveda. Pares de edición limitada, colaboraciones exclusivas y clásicos reinventados para los verdaderos
+          coleccionistas.</p>
+      </div>
+
+      <div class="mt-10 grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
+        <article
+          class="group soft-card tilt-card relative overflow-hidden rounded-[2.75rem] bg-dark text-paper shadow-luxe">
+          <img src="https://images.unsplash.com/photo-1552346154-21d32810baa3?auto=format&fit=crop&w=1200&q=80"
+            alt="Zapatillas exclusivas" width="1200" height="900" loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover opacity-60 transition-transform duration-[1.5s] ease-out group-hover:scale-105 group-hover:opacity-40">
+          <div
+            class="relative z-10 flex h-full min-h-[440px] flex-col justify-between bg-gradient-to-t from-dark via-dark/40 to-transparent p-8 md:p-10">
+            <div class="flex items-start justify-between">
+              <span
+                class="rounded-full bg-accent/90 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-paper shadow-lg backdrop-blur-md">Drop
+                Semanal</span>
+              <button
+                class="magnetic flex h-12 w-12 items-center justify-center rounded-full bg-paper/10 text-paper backdrop-blur-md transition hover:bg-paper hover:text-dark">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-auto transform transition-all duration-500 group-hover:-translate-y-2">
+              <h3 class="font-display text-4xl font-bold leading-tight md:text-5xl">Air Jordan 1 Retro<br><span
+                  class="text-accent">"Lost & Found"</span></h3>
+              <p class="mt-4 max-w-md text-paper/80">La leyenda regresa con un aspecto vintage desgastado que cuenta una
+                historia de descubrimiento en los archivos.</p>
+              <div class="mt-8 flex items-center gap-6">
+                <a href="#comprar"
+                  class="inline-flex items-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm font-bold text-dark transition hover:bg-muted">
+                  Comprar ahora
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+                <span class="text-2xl font-extrabold tracking-tight">450 €</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div class="grid gap-6">
+          <article
+            class="group soft-card relative overflow-hidden rounded-[2.5rem] bg-muted p-8 text-dark shadow-[0_18px_45px_rgba(15, 23, 42,0.08)]">
+            <div
+              class="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-accent/15 blur-3xl transition-all duration-700 group-hover:bg-accent/30">
+            </div>
+            <div class="relative z-10 flex h-full flex-col justify-between">
+              <div>
+                <div class="flex items-start justify-between">
+                  <p class="text-xs font-bold uppercase tracking-[0.3em] text-accent">Collab Exclusiva</p>
+                  <span class="rounded-full bg-dark px-3 py-1 text-xs font-bold text-paper">Agotado</span>
+                </div>
+                <h3 class="mt-4 text-2xl font-extrabold leading-tight">Yeezy Boost 700 "Wave Runner"</h3>
+                <p class="mt-2 text-sm text-dark/70">El chunky sneaker que lo empezó todo.</p>
+              </div>
+              <div
+                class="mt-6 flex items-center justify-center rounded-2xl bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.7)_0%,transparent_80%)] p-4 transition-transform duration-500 group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=600&q=80"
+                  alt="Yeezy 700" class="h-32 w-auto object-contain mix-blend-multiply drop-shadow-2xl" loading="lazy">
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="group soft-card relative overflow-hidden rounded-[2.5rem] border border-dark/10 bg-paper p-8 shadow-[0_18px_45px_rgba(15, 23, 42,0.08)]">
+            <div
+              class="absolute -bottom-12 -left-12 h-48 w-48 rounded-full bg-dark/5 blur-3xl transition-all duration-700 group-hover:bg-dark/10">
+            </div>
+            <div class="relative z-10 flex h-full flex-col justify-between">
+              <div class="flex items-start justify-between">
+                <div>
+                  <p class="text-xs font-bold uppercase tracking-[0.3em] text-dark/40">Restock</p>
+                  <h3 class="mt-3 text-2xl font-extrabold leading-tight">New Balance 550</h3>
+                  <p class="mt-1 text-sm text-dark/65">White / Green</p>
+                </div>
+                <span class="text-xl font-extrabold">130 €</span>
+              </div>
+              <div class="mt-6 flex items-end justify-between">
+                <button
+                  class="magnetic rounded-full border border-dark/10 bg-paper px-5 py-2.5 text-sm font-bold transition hover:border-accent hover:text-accent">Añadir</button>
+                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=400&q=80"
+                  alt="New Balance 550"
+                  class="h-28 w-auto origin-bottom-right object-contain drop-shadow-xl transition-transform duration-500 group-hover:-rotate-3 group-hover:scale-110"
+                  loading="lazy">
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="coleccion" class="bg-paper py-16 md:py-24 fade-up">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.3em] text-accent">Colección</p>
+            <h2 class="mt-3 text-3xl font-extrabold tracking-tight md:text-5xl">Sneakers que se sienten
+              exclusivas.</h2>
+          </div>
+          <a href="#"
+            class="text-sm font-bold text-dark underline decoration-accent decoration-2 underline-offset-4">Ver
+            todo</a>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <article
+            class="soft-card overflow-hidden rounded-[2.2rem] border border-dark/10 bg-surface shadow-[0_18px_45px_rgba(15, 23, 42,0.08)] fade-up">
+            <div class="bg-[linear-gradient(180deg,#ffffff_0%,#F8FAFC_100%)] p-6">
+              <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=80"
+                alt="Sneaker blanco premium" width="900" height="700" loading="lazy" class="h-52 w-full object-contain">
+            </div>
+            <div class="p-6">
+              <p class="text-xs font-bold uppercase tracking-[0.28em] text-accent">Top Laces</p>
+              <h3 class="mt-2 text-xl font-extrabold">Vertex Low</h3>
+              <p class="mt-2 text-sm text-dark/65">Minimalismo técnico y acabados premium.</p>
+              <div class="mt-5 flex items-center justify-between">
+                <span class="text-lg font-extrabold">159 €</span>
+                <button
+                  class="rounded-full border border-dark/10 bg-paper px-4 py-2 text-sm font-bold transition hover:border-accent hover:text-accent">Comprar</button>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="soft-card overflow-hidden rounded-[2.2rem] border border-dark/10 bg-surface shadow-[0_18px_45px_rgba(15, 23, 42,0.08)] fade-up">
+            <div class="bg-[linear-gradient(180deg,#E2E8F0_0%,#F8FAFC_100%)] p-6">
+              <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=900&q=80"
+                alt="Sneaker beige y negra" width="900" height="700" loading="lazy" class="h-52 w-full object-contain">
+            </div>
+            <div class="p-6">
+              <p class="text-xs font-bold uppercase tracking-[0.28em] text-accent">Top Laces</p>
+              <h3 class="mt-2 text-xl font-extrabold">Monarch Elite</h3>
+              <p class="mt-2 text-sm text-dark/65">Volumen limpio con presencia de pasarela.</p>
+              <div class="mt-5 flex items-center justify-between">
+                <span class="text-lg font-extrabold">199 €</span>
+                <button
+                  class="rounded-full border border-dark/10 bg-paper px-4 py-2 text-sm font-bold transition hover:border-accent hover:text-accent">Comprar</button>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="soft-card overflow-hidden rounded-[2.2rem] border border-dark/10 bg-surface shadow-[0_18px_45px_rgba(15, 23, 42,0.08)] fade-up">
+            <div class="bg-[linear-gradient(180deg,#3B82F6_0%,#bce4e9_100%)] p-6">
+              <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&w=900&q=80"
+                alt="Sneaker con detalles turquesa" width="900" height="700" loading="lazy"
+                class="h-52 w-full object-contain">
+            </div>
+            <div class="p-6">
+              <p class="text-xs font-bold uppercase tracking-[0.28em] text-accent">Top Laces</p>
+              <h3 class="mt-2 text-xl font-extrabold">Aqua Pulse</h3>
+              <p class="mt-2 text-sm text-dark/65">La pieza de acento dentro de la paleta de marca.</p>
+              <div class="mt-5 flex items-center justify-between">
+                <span class="text-lg font-extrabold">179 €</span>
+                <button
+                  class="rounded-full border border-dark/10 bg-paper px-4 py-2 text-sm font-bold transition hover:border-accent hover:text-accent">Comprar</button>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="soft-card overflow-hidden rounded-[2.2rem] border border-dark/10 bg-surface shadow-[0_18px_45px_rgba(15, 23, 42,0.08)] fade-up">
+            <div class="bg-[linear-gradient(180deg,#0F172A_0%,#5b5b5b_100%)] p-6">
+              <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=900&q=80"
+                alt="Sneaker negra de alta gama" width="900" height="700" loading="lazy"
+                class="h-52 w-full object-contain">
+            </div>
+            <div class="p-6">
+              <p class="text-xs font-bold uppercase tracking-[0.28em] text-accent">Top Laces</p>
+              <h3 class="mt-2 text-xl font-extrabold">Noir Phantom</h3>
+              <p class="mt-2 text-sm text-dark/65">Oscura, pulida y pensada para destacar.</p>
+              <div class="mt-5 flex items-center justify-between">
+                <span class="text-lg font-extrabold">209 €</span>
+                <button
+                  class="rounded-full border border-dark/10 bg-paper px-4 py-2 text-sm font-bold transition hover:border-accent hover:text-accent">Comprar</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia" class="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 fade-up">
+      <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <article
+          class="soft-card rounded-[2.75rem] bg-[linear-gradient(145deg,#111111_0%,#1a1a1a_55%,#101314_100%)] p-8 text-paper shadow-luxe md:p-10">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-muted/75">Servicio Top Laces</p>
+          <h2 class="mt-4 text-3xl font-semibold text-paper md:text-5xl">Compra con calma, recibe con
+            seguridad.</h2>
+          <p class="mt-5 max-w-xl text-base leading-8 text-paper/70">Cada par pasa por control visual,
+            embalaje premium y envío rápido. La experiencia está pensada para sentirse cuidada desde que
+            entras hasta que recibes la caja en casa.</p>
+          <div class="mt-8 grid gap-4 sm:grid-cols-3">
+            <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
+              <p class="text-2xl font-semibold" data-count="24">0</p>
+              <p class="mt-2 text-sm text-paper/62">Horas de preparación</p>
+            </div>
+            <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
+              <p class="text-2xl font-semibold" data-count="100">0</p>
+              <p class="mt-2 text-sm text-paper/62">Autenticidad revisada</p>
+            </div>
+            <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
+              <p class="text-2xl font-semibold" data-count="48">0</p>
+              <p class="mt-2 text-sm text-paper/62">Horas de entrega estimada</p>
+            </div>
+          </div>
+        </article>
+
+        <div class="grid gap-6">
+          <article
+            class="soft-card rounded-[2.5rem] border border-dark/10 bg-paper p-8 shadow-[0_18px_45px_rgba(15, 23, 42,0.08)]">
+            <p class="text-xs font-semibold uppercase tracking-[0.28em] text-accent">Entrega premium</p>
+            <h3 class="mt-3 text-2xl font-semibold">Packaging limpio y protegido.</h3>
+            <p class="mt-3 text-dark/65">Caja exterior reforzada, presentación cuidada y un unboxing alineado
+              con una tienda de sneakers premium.</p>
+          </article>
+          <article
+            class="soft-card rounded-[2.5rem] border border-dark/10 bg-paper p-8 shadow-[0_18px_45px_rgba(15, 23, 42,0.08)]">
+            <p class="text-xs font-semibold uppercase tracking-[0.28em] text-accent">Selección curada</p>
+            <h3 class="mt-3 text-2xl font-semibold">Menos ruido, mejores pares.</h3>
+            <p class="mt-3 text-dark/65">El catálogo prioriza modelos con demanda real, colorways
+              reconocibles y lanzamientos que sí aportan valor a la tienda.</p>
+          </article>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-row">
-      <p>© 2026 KickMarket. Todos los derechos reservados.</p>
-      <div class="footer-links">
-        <a href="#">Privacidad</a>
-        <a href="#">Términos</a>
-        <a href="#">Contacto</a>
+  <footer class="border-t border-dark/10 bg-paper">
+    <div
+      class="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 md:flex-row md:items-center md:justify-between md:px-8">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.3em] text-accent">Top Laces</p>
+        <p class="mt-2 text-sm text-dark/65">Sneakers curadas con estética premium.</p>
       </div>
+      <nav class="flex flex-wrap gap-5 text-sm font-semibold text-dark/75">
+        <a href="#novedades" class="hover:text-accent">Novedades</a>
+        <a href="#coleccion" class="hover:text-accent">Colección</a>
+        <a href="#experiencia" class="hover:text-accent">Experiencia</a>
+      </nav>
     </div>
   </footer>
 
+  <script>
+    const header = document.getElementById('site-header');
+    const onScroll = () => {
+      if (window.scrollY > 20) header.classList.add('nav-scrolled');
+      else header.classList.remove('nav-scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('in-view');
+      });
+    }, { threshold: 0.16 });
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+
+    document.querySelectorAll('[data-count]').forEach((el) => {
+      let done = false;
+      const target = Number(el.dataset.count);
+      const run = () => {
+        if (done) return;
+        done = true;
+        let start = 0;
+        const duration = 1200;
+        const startTime = performance.now();
+        const animate = (now) => {
+          const progress = Math.min((now - startTime) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(start + (target - start) * eased) + (target === 100 ? '%' : 'h');
+          if (progress < 1) requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
+      };
+      const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) run();
+        });
+      }, { threshold: 0.5 });
+      countObserver.observe(el);
+    });
+
+    document.querySelectorAll('.tilt-card').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        if (window.innerWidth < 1024) return;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rotateY = ((x / rect.width) - 0.5) * 6;
+        const rotateX = ((y / rect.height) - 0.5) * -6;
+        card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
+    });
+
+    document.querySelectorAll('.magnetic').forEach((button) => {
+      button.addEventListener('mousemove', (e) => {
+        const rect = button.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        button.style.transform = `translate(${x * 0.08}px, ${y * 0.08}px)`;
+      });
+      button.addEventListener('mouseleave', () => {
+        button.style.transform = 'translate(0,0)';
+      });
+    });
+  </script>
 </body>
+
 </html>
