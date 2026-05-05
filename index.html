@@ -147,7 +147,7 @@
                 <img
                   src="https://images.stockx.com/images/Air-Jordan-4-Retro-White-Cement-2025.jpg?fit=fill&bg=FFFFFF&w=1200&h=857&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1737726370"
                   alt="Air Jordan 4 White Cement" width="1200" height="857" loading="lazy"
-                  class="w-full max-w-2xl drop-shadow-[0_30px_50px_rgba(0,0,0,0.55)]">
+                  class="hero-feature-img w-full max-w-2xl drop-shadow-[0_30px_50px_rgba(0,0,0,0.55)]">
               </div>
             </div>
           </article>
@@ -236,9 +236,9 @@
                 <p class="mt-2 text-sm text-dark/70">El chunky sneaker que lo empezó todo.</p>
               </div>
               <div
-                class="mt-6 flex items-center justify-center rounded-2xl bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.7)_0%,transparent_80%)] p-4 transition-transform duration-500 group-hover:scale-105">
+                class="mt-6 flex items-center justify-center rounded-2xl bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.7)_0%,transparent_80%)] p-4 transition-transform duration-500 group-hover:scale-105" style="aspect-ratio:4/3;overflow:hidden">
                 <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=600&q=80"
-                  alt="Yeezy 700" class="h-32 w-auto object-contain mix-blend-multiply drop-shadow-2xl" loading="lazy">
+                  alt="Yeezy 700" class="mini-product-img h-full w-full object-contain mix-blend-multiply drop-shadow-2xl" loading="lazy">
               </div>
             </div>
           </article>
@@ -262,7 +262,7 @@
                   class="magnetic rounded-full border border-dark/10 bg-paper px-5 py-2.5 text-sm font-bold transition hover:border-accent hover:text-accent">Añadir</button>
                 <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=400&q=80"
                   alt="New Balance 550"
-                  class="h-28 w-auto origin-bottom-right object-contain drop-shadow-xl transition-transform duration-500 group-hover:-rotate-3 group-hover:scale-110"
+                  class="mini-product-img h-36 w-36 origin-bottom-right object-contain drop-shadow-xl transition-transform duration-500 group-hover:-rotate-3 group-hover:scale-110"
                   loading="lazy">
               </div>
             </div>
@@ -420,26 +420,26 @@
 
     /* ---- Collection: Dynamic cards from nombres.txt ---- */
     const sneakers = [
-      { name:'Jordan Retro 1 Chicago Lost and Found', brand:'Nike / Jordan', cat:'nike', price:'450 €', img:'assets/img/jordanChica.png', gradient:'#8B0000,#1a1a1a', desc:'La leyenda que lo empezó todo, regresa con acabado vintage.' },
-      { name:'Jordan Retro 1 Obsidian High', brand:'Nike / Jordan', cat:'nike', price:'320 €', img:'https://images.stockx.com/images/Air-Jordan-1-Retro-High-Obsidian-UNC.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#1e3a5f,#0F172A', desc:'Tonos obsidiana y university blue en una silueta inmortal.' },
-      { name:'Jordan Retro 1 Low Travis Scott x Fragment', brand:'Nike / Jordan', cat:'nike', price:'1.200 €', img:'https://images.stockx.com/images/Air-Jordan-1-Retro-Low-OG-SP-Fragment-x-Travis-Scott.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#2d4a7a,#0a1628', desc:'Triple collab legendaria. Fragment x Cactus Jack x Jordan.' },
-      { name:'Jordan Retro 4 Yellow Thunder', brand:'Nike / Jordan', cat:'nike', price:'380 €', img:'assets/img/jordantv.png', gradient:'#d4a017,#1a1a1a', desc:'Thunder amarillo sobre negro: contraste icónico de los 90.' },
-      { name:'Nike AF1 x Louis Vuitton', brand:'Nike / Jordan', cat:'nike', price:'2.750 €', img:'assets/img/af1lv.png', gradient:'#3d2b1f,#0F172A', desc:'Virgil Abloh fusionó el lujo parisino con el streetwear.' },
-      { name:'Yeezy 350 Zebra', brand:'Yeezy / Adidas', cat:'yeezy', price:'280 €', img:'assets/img/yeezy350.png', gradient:'#e0e0e0,#1a1a1a', desc:'El patrón zebra que definió una era del sneaker game.' },
-      { name:'Adidas Forum Bad Bunny Rosas', brand:'Yeezy / Adidas', cat:'yeezy', price:'350 €', img:'https://images.stockx.com/images/adidas-Forum-Low-Bad-Bunny-Pink-Easter-Egg.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#e8a0bf,#f5d5e0', desc:'Bad Bunny x Adidas: rosa pastel con actitud latina.' },
-      { name:'Adidas x Pharrell Williams', brand:'Yeezy / Adidas', cat:'yeezy', price:'220 €', img:'https://images.stockx.com/images/adidas-NMD-HU-Pharrell-Human-Race-Yellow.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#f5c518,#ff8c00', desc:'Human Race: color vibrante y mensaje positivo.' },
-      { name:'Yeezy Slide Bone', brand:'Yeezy / Adidas', cat:'yeezy', price:'160 €', img:'assets/img/slideyeeze.png', gradient:'#d4c9a8,#f0ead6', desc:'Minimalismo total. La slide que conquistó el streetwear.' },
-      { name:'Yeezy Foam Runner Onyx', brand:'Yeezy / Adidas', cat:'yeezy', price:'190 €', img:'https://images.stockx.com/images/adidas-Yeezy-Foam-RNNR-Onyx.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#1a1a1a,#333333', desc:'Forma alienígena, comodidad terrestre. Foam futurista.' },
-      { name:'Air Jordan 1 x Off-White', brand:'Off-White', cat:'offwhite', price:'5.500 €', img:'assets/img/jordanOff.png', gradient:'#e8e8e8,#b0b0b0', desc:'La deconstrucción que cambió la industria para siempre.' },
-      { name:'Air Max 90 x Off-White', brand:'Off-White', cat:'offwhite', price:'1.800 €', img:'https://images.stockx.com/images/Nike-Air-Max-90-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#f5f0e1,#d4c9a8', desc:'Virgil reimaginó el clásico runner con su visión única.' },
-      { name:'Air Presto x Off-White', brand:'Off-White', cat:'offwhite', price:'2.200 €', img:'https://images.stockx.com/images/Nike-Air-Presto-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#1a1a1a,#444', desc:'Presto deconstruido: transparencia y etiquetas icónicas.' },
-      { name:'Air Vapormax x Off-White', brand:'Off-White', cat:'offwhite', price:'1.600 €', img:'https://images.stockx.com/images/Nike-Air-VaporMax-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#c8d6e5,#dfe6ed', desc:'Cámara de aire expuesta, diseño transparente radical.' },
-      { name:'Blazer Mid x Off-White', brand:'Off-White', cat:'offwhite', price:'1.400 €', img:'https://images.stockx.com/images/Nike-Blazer-Mid-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#f5f5f5,#e0e0e0', desc:'El Blazer vintage llevado al arte contemporáneo.' },
-      { name:'Converse Chuck Taylor x Off-White', brand:'Off-White', cat:'offwhite', price:'1.100 €', img:'https://images.stockx.com/images/Converse-Chuck-Taylor-All-Star-Vulcanized-Hi-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#f8f4e3,#e8dcc8', desc:'Chuck Taylor deconstruido: lona cruda y costuras vistas.' },
-      { name:'Zoom Fly SP x Off-White', brand:'Off-White', cat:'offwhite', price:'900 €', img:'https://images.stockx.com/images/Nike-Zoom-Fly-Off-White-Pink.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#f8c8d4,#f0a0b8', desc:'Rendimiento running con estética de pasarela.' },
-      { name:'Air Force 1 Low x Off-White', brand:'Off-White', cat:'offwhite', price:'2.000 €', img:'https://images.stockx.com/images/Nike-Air-Force-1-Low-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#f0ead6,#d4c9a8', desc:'El AF1 reimaginado con la marca registrada de Virgil.' },
-      { name:'React Hyperdunk x Off-White', brand:'Off-White', cat:'offwhite', price:'750 €', img:'https://images.stockx.com/images/Nike-React-Hyperdunk-2017-Flyknit-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#1a1a1a,#2d2d2d', desc:'Performance basketball con el ADN de Off-White.' },
-      { name:'Air Max 97 x Off-White', brand:'Off-White', cat:'offwhite', price:'1.500 €', img:'https://images.stockx.com/images/Nike-Air-Max-97-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#c0c0c0,#e8e8e8', desc:'Silver bullet deconstruida con suela traslúcida.' }
+      { name:'Jordan Retro 1 Chicago Lost and Found', brand:'Nike / Jordan', cat:'nike', price:'450 €', img:'assets/img/Jordan retro 1 chicago lost and found.png', gradient:'#8B0000,#1a1a1a', desc:'La leyenda que lo empezó todo, regresa con acabado vintage.' },
+      { name:'Jordan Retro 1 Obsidian High', brand:'Nike / Jordan', cat:'nike', price:'400 €', img:'assets/img/Jordan retro 1 obsidian high.png', gradient:'#1e3a5f,#0F172A', desc:'Tonos obsidiana y university blue en una silueta inmortal.' },
+      { name:'Jordan 1 Low Travis Scott x Fragment', brand:'Nike / Jordan', cat:'nike', price:'1.400 €', img:'assets/img/Jordan retro 1 low travis scott x fragment.png', gradient:'#2d4a7a,#0a1628', desc:'Triple collab legendaria. Fragment x Cactus Jack x Jordan.' },
+      { name:'Jordan Retro 4 Yellow Thunder', brand:'Nike / Jordan', cat:'nike', price:'300 €', img:'assets/img/jordan retro 4 yellow thunder.png', gradient:'#d4a017,#1a1a1a', desc:'Thunder amarillo sobre negro: contraste icónico de los 90.' },
+      { name:'Nike AF1 x Louis Vuitton', brand:'Nike / Jordan', cat:'nike', price:'8.000 €', img:'assets/img/Nike af1 x louis vuitton.png', gradient:'#3d2b1f,#0F172A', desc:'Virgil Abloh fusionó el lujo parisino con el streetwear.' },
+      { name:'Yeezy 350 Zebra', brand:'Yeezy / Adidas', cat:'yeezy', price:'300 €', img:'assets/img/Yeezy 350 zebra.png', gradient:'#e0e0e0,#1a1a1a', desc:'El patrón zebra que definió una era del sneaker game.' },
+      { name:'Adidas Forum Bad Bunny Azules', brand:'Yeezy / Adidas', cat:'yeezy', price:'300 €', img:'assets/img/Adidas forum bad bunny azules.png', gradient:'#85a1c1,#e2e8f0', desc:'Bad Bunny x Adidas: azul con actitud latina.' },
+      { name:'Adidas x Pharrell Williams', brand:'Yeezy / Adidas', cat:'yeezy', price:'300 €', img:'assets/img/Adidas x pharrem williams.png', gradient:'#f5c518,#ff8c00', desc:'Human Race: color vibrante y mensaje positivo.' },
+      { name:'Yeezy Slide Bone', brand:'Yeezy / Adidas', cat:'yeezy', price:'140 €', img:'assets/img/Yeezy slide bone.png', gradient:'#d4c9a8,#f0ead6', desc:'Minimalismo total. La slide que conquistó el streetwear.' },
+      { name:'Yeezy Foam Runner Onyx', brand:'Yeezy / Adidas', cat:'yeezy', price:'150 €', img:'assets/img/Yeezy foam onyx.png', gradient:'#1a1a1a,#333333', desc:'Forma alienígena, comodidad terrestre. Foam futurista.' },
+      { name:'Air Jordan 1 x Off-White', brand:'Off-White', cat:'offwhite', price:'5.500 €', img:'assets/img/Air Jordan 1 x off white.png', gradient:'#e8e8e8,#b0b0b0', desc:'La deconstrucción que cambió la industria para siempre.' },
+      { name:'Air Max 90 x Off-White', brand:'Off-White', cat:'offwhite', price:'1.000 €', img:'assets/img/Air Max 90 x off white.png', gradient:'#f5f0e1,#d4c9a8', desc:'Virgil reimaginó el clásico runner con su visión única.' },
+      { name:'Air Presto x Off-White', brand:'Off-White', cat:'offwhite', price:'800 €', img:'assets/img/Air Presto. x off white.png', gradient:'#1a1a1a,#444', desc:'Presto deconstruido: transparencia y etiquetas icónicas.' },
+      { name:'Air Vapormax x Off-White', brand:'Off-White', cat:'offwhite', price:'400 €', img:'assets/img/Air Vapormax x off white.png', gradient:'#c8d6e5,#dfe6ed', desc:'Cámara de aire expuesta, diseño transparente radical.' },
+      { name:'Blazer Mid x Off-White', brand:'Off-White', cat:'offwhite', price:'1.200 €', img:'assets/img/Blazer Mid x off white.png', gradient:'#f5f5f5,#e0e0e0', desc:'El Blazer vintage llevado al arte contemporáneo.' },
+      { name:'Converse Chuck Taylor x Off-White', brand:'Off-White', cat:'offwhite', price:'1.200 €', img:'https://images.stockx.com/images/Converse-Chuck-Taylor-All-Star-Vulcanized-Hi-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#f8f4e3,#e8dcc8', desc:'Chuck Taylor deconstruido: lona cruda y costuras vistas.' },
+      { name:'Zoom Fly SP x Off-White', brand:'Off-White', cat:'offwhite', price:'400 €', img:'assets/img/Zoom Fly SP x off white.png', gradient:'#f8c8d4,#f0a0b8', desc:'Rendimiento running con estética de pasarela.' },
+      { name:'Air Force 1 Low x Off-White', brand:'Off-White', cat:'offwhite', price:'1.500 €', img:'assets/img/Air Force 1 Low x off white .png', gradient:'#f0ead6,#d4c9a8', desc:'El AF1 reimaginado con la marca registrada de Virgil.' },
+      { name:'React Hyperdunk x Off-White', brand:'Off-White', cat:'offwhite', price:'800 €', img:'assets/img/React Hyperdunk x off white.png', gradient:'#1a1a1a,#2d2d2d', desc:'Performance basketball con el ADN de Off-White.' },
+      { name:'Air Max 97 x Off-White', brand:'Off-White', cat:'offwhite', price:'1.200 €', img:'assets/img/Air Max 97 x off white.png', gradient:'#c0c0c0,#e8e8e8', desc:'Silver bullet deconstruida con suela traslúcida.' }
     ];
 
     const categories = [
@@ -469,8 +469,8 @@
         const card = document.createElement('article');
         card.className = `soft-card shimmer-card overflow-hidden rounded-[2.2rem] border border-dark/10 bg-surface shadow-[0_18px_45px_rgba(15,23,42,0.08)] fade-up fade-up-d${Math.min(i + 1, 10)}`;
         card.innerHTML = `
-          <div class="relative overflow-hidden p-6" style="background:linear-gradient(180deg,${g1} 0%,${g2} 100%)">
-            <img src="${s.img}" alt="${s.name}" loading="lazy" class="product-card-img h-52 w-full object-contain drop-shadow-xl">
+          <div class="product-card-img-wrapper relative overflow-hidden bg-white">
+            <img src="${s.img}" alt="${s.name}" loading="lazy" class="product-card-img mix-blend-multiply drop-shadow-xl">
           </div>
           <div class="p-6">
             <div class="flex items-center justify-between">
