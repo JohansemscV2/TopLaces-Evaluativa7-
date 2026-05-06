@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Top Laces - Luxury Sneakers</title>
+  <link rel="icon" type="image/png" href="assets/img/Logo-Footer.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,14 +61,7 @@
     class="fixed top-4 inset-x-0 mx-auto max-w-[85%] lg:max-w-4xl z-50 rounded-full glass border border-black/5 transition-all duration-500">
     <div class="flex items-center justify-between px-6 py-3">
       <a href="#" class="flex items-center gap-2" aria-label="Top Laces inicio">
-        <svg viewBox="0 0 64 64" class="h-8 w-8 text-dark" fill="none" xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
-          <rect x="7" y="7" width="50" height="50" rx="16" stroke="currentColor" stroke-width="4" />
-          <path d="M20 22H44" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-          <path d="M22 32H42" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-          <path d="M24 42H40" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-        </svg>
-        <span class="text-lg font-bold tracking-tight">Top Laces</span>
+        <img src="assets/img/Logo-Header.png" alt="Top Laces Logo" class="h-8 w-auto object-contain">
       </a>
       <nav class="hidden items-center gap-8 text-[13px] font-semibold text-dark/80 lg:flex">
         <a href="#novedades" class="transition hover:text-dark">Novedades</a>
@@ -345,25 +339,29 @@
     </div>
   </div>
 
-  <footer class="bg-paper border-t border-black/5 pt-16 pb-8">
-    <div class="mx-auto max-w-7xl px-6 flex flex-col items-center text-center gap-6">
-      <div>
-        <svg viewBox="0 0 64 64" class="h-10 w-10 text-dark mx-auto mb-4" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <rect x="7" y="7" width="50" height="50" rx="16" stroke="currentColor" stroke-width="4" />
-          <path d="M20 22H44" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-          <path d="M22 32H42" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-          <path d="M24 42H40" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-        </svg>
-        <p class="text-[11px] font-bold uppercase tracking-widest text-dark">Top Laces</p>
-        <p class="mt-2 text-sm font-medium text-secondary">Diseño premium. Estética impecable.</p>
+  <footer class="bg-dark text-paper pt-20 pb-12 overflow-hidden relative">
+    <!-- Liquid Blob for Footer -->
+    <div
+      class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[800px] h-[400px] bg-white/5 blur-[100px] rounded-full pointer-events-none">
+    </div>
+
+    <div class="mx-auto max-w-7xl px-6 flex flex-col items-center text-center gap-10 relative z-10">
+      <div class="flex flex-col items-center">
+        <img src="assets/img/Logo-Footer.png" alt="Top Laces Footer Logo"
+          class="h-24 w-auto object-contain mb-6 drop-shadow-xl">
+        <p class="text-base font-medium text-paper/70 max-w-sm">
+          Diseño premium. Estética impecable. Sneakers exclusivos para el coleccionista exigente.
+        </p>
       </div>
-      <nav class="flex flex-wrap justify-center gap-8 text-sm font-semibold text-secondary mt-4">
-        <a href="#novedades" class="hover:text-dark transition">Novedades</a>
-        <a href="#coleccion" class="hover:text-dark transition">Colección</a>
-        <a href="#experiencia" class="hover:text-dark transition">Experiencia</a>
+      <nav class="flex flex-wrap justify-center gap-8 text-sm font-bold text-paper/80 mt-2">
+        <a href="#novedades" class="hover:text-paper hover:underline underline-offset-4 transition-all">Novedades</a>
+        <a href="#coleccion" class="hover:text-paper hover:underline underline-offset-4 transition-all">Colección</a>
+        <a href="#experiencia"
+          class="hover:text-paper hover:underline underline-offset-4 transition-all">Experiencia</a>
       </nav>
-      <p class="mt-10 text-xs font-medium text-secondary/60">© 2026 Top Laces. Liquid Design Initiative.</p>
+      <div class="w-full max-w-md h-px bg-white/10 mt-4"></div>
+      <p class="text-xs font-medium text-paper/40 tracking-wider uppercase">© 2026 Top Laces. Todos los derechos
+        reservados.</p>
     </div>
   </footer>
 
@@ -450,7 +448,9 @@
       { name: 'Air Presto x Off-White', brand: 'Off-White', cat: 'offwhite', price: '800 €', img: 'assets/img/Air Presto. x off white.png', desc: 'Transparencia, bridas y diseño crudo.' },
       { name: 'Vapormax x Off-White', brand: 'Off-White', cat: 'offwhite', price: '400 €', img: 'assets/img/Air Vapormax x off white.png', desc: 'Cámara de aire expuesta al máximo nivel.' },
       { name: 'Blazer Mid x Off-White', brand: 'Off-White', cat: 'offwhite', price: '1.200 €', img: 'assets/img/Blazer Mid x off white.png', desc: 'La zapatilla vintage como lienzo contemporáneo.' },
-      { name: 'Chuck Taylor x Off-White', brand: 'Off-White', cat: 'offwhite', price: '1.200 €', img: 'https://images.stockx.com/images/Converse-Chuck-Taylor-All-Star-Vulcanized-Hi-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', desc: 'Lona deconstruida y costuras técnicas.' },
+      {
+        name: 'Chuck Taylor x Off-White', brand: 'Off-White', cat: 'offwhite', price: '1.200 €', img: 'assets/img/convers.png', desc: 'Lona deconstruida y costuras técnicas.'
+      },
       { name: 'Zoom Fly x Off-White', brand: 'Off-White', cat: 'offwhite', price: '400 €', img: 'assets/img/Zoom Fly SP x off white.png', desc: 'Rendimiento llevado a la pasarela de moda.' },
       { name: 'AF1 Low x Off-White', brand: 'Off-White', cat: 'offwhite', price: '1.500 €', img: 'assets/img/Air Force 1 Low x off white .png', desc: 'Materiales translúcidos en una silueta eterna.' },
       { name: 'Hyperdunk x Off-White', brand: 'Off-White', cat: 'offwhite', price: '800 €', img: 'assets/img/React Hyperdunk x off white.png', desc: 'Basketball de alto rendimiento estilizado.' },
