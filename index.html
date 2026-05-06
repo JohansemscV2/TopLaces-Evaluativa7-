@@ -16,7 +16,9 @@
   <link rel="stylesheet" href="assets/styles/animations.css">
   <style>
     @keyframes shimmer {
-      100% { transform: translateX(100%); }
+      100% {
+        transform: translateX(100%);
+      }
     }
   </style>
   <script>
@@ -330,9 +332,15 @@
         class="relative w-full rounded-2xl bg-dark py-5 text-base font-bold text-paper transition-all duration-300 hover:scale-[1.02] hover:shadow-luxe overflow-hidden group disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed">
         <span class="relative z-10 flex items-center justify-center gap-2">
           Proceder al pago
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
         </span>
-        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite]"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite]">
+        </div>
       </button>
     </div>
   </div>
