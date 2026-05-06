@@ -55,6 +55,5 @@ Dado que es un proyecto puramente estático (Frontend), no requiere instalación
 2.  Abre el archivo `index.html` en cualquier navegador web moderno (Chrome, Firefox, Safari, Edge).
 3.  ¡Explora la tienda, añade pares al carrito y procede al pago para descubrir la sorpresa final!
 
-## ✍️ Autor
-
-Desarrollado como parte de las prácticas académicas para el bloque evaluativo.
+## ✍️ Autores
+Fundadores de la empresa (Katya, Johan, Dani, David, Adri F)
