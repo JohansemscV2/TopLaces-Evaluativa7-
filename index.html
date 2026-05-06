@@ -4,39 +4,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Top Laces - Sneakers de lujo</title>
+  <title>Top Laces - Luxury Sneakers</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- CSS Modular -->
   <link rel="stylesheet" href="assets/styles/reset.css">
   <link rel="stylesheet" href="assets/styles/global.css">
   <link rel="stylesheet" href="assets/styles/components.css">
   <link rel="stylesheet" href="assets/styles/animations.css">
+  <style>
+    @keyframes shimmer {
+      100% { transform: translateX(100%); }
+    }
+  </style>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            dark: '#0F172A',
-            accent: '#3B82F6',
-            muted: '#E2E8F0',
-            surface: '#F8FAFC',
-            paper: '#FFFFFF'
+            dark: '#1D1D1F',
+            accent: '#000000',
+            muted: '#F5F5F7',
+            surface: '#F5F5F7',
+            paper: '#FFFFFF',
+            secondary: '#86868B'
           },
           fontFamily: {
-            sans: ['Manrope', 'sans-serif'],
-            display: ['Cormorant Garamond', 'serif']
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
           },
           boxShadow: {
-            soft: '0 20px 60px rgba(15, 23, 42,0.12)',
-            luxe: '0 30px 90px rgba(15, 23, 42,0.18)'
+            subtle: '0 4px 20px rgba(0, 0, 0, 0.03)',
+            soft: '0 10px 40px rgba(0, 0, 0, 0.05)',
+            luxe: '0 30px 80px rgba(0, 0, 0, 0.1)'
           },
           letterSpacing: {
-            luxe: '0.18em'
+            tightest: '-.04em',
           }
         }
       }
@@ -44,328 +48,344 @@
   </script>
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased text-dark bg-surface">
   <a href="#contenido"
     class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-dark focus:px-4 focus:py-2 focus:text-paper">Saltar
     al contenido</a>
 
+  <!-- Floating Navigation (Glassmorphism) -->
   <header id="site-header"
-    class="sticky top-0 z-40 border-b border-dark/10 bg-surface/82 backdrop-blur-xl transition-all duration-500">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8">
-      <div class="flex items-center gap-10">
-        <a href="#" class="flex items-center gap-3" aria-label="Top Laces inicio">
-          <svg viewBox="0 0 64 64" class="h-10 w-10 text-dark" fill="none" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true">
-            <rect x="7" y="7" width="50" height="50" rx="16" stroke="currentColor" stroke-width="4" />
-            <path d="M20 22H44" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-            <path d="M22 32H42" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-            <path d="M24 42H40" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-          </svg>
-          <div>
-            <p class="text-[11px] font-semibold uppercase tracking-luxe text-accent">Luxury sneakers</p>
-            <p class="text-xl font-extrabold tracking-tight">Top Laces</p>
-          </div>
-        </a>
-        <nav class="hidden items-center gap-7 text-sm font-semibold lg:flex">
-          <a href="#novedades" class="transition hover:text-accent">Novedades</a>
-          <a href="#hombre" class="transition hover:text-accent">Hombre</a>
-          <a href="#mujer" class="transition hover:text-accent">Mujer</a>
-          <a href="#coleccion" class="transition hover:text-accent">Colección</a>
-          <a href="#experiencia" class="transition hover:text-accent">Experiencia</a>
-        </nav>
-      </div>
+    class="fixed top-4 inset-x-0 mx-auto max-w-[85%] lg:max-w-4xl z-50 rounded-full glass border border-black/5 transition-all duration-500">
+    <div class="flex items-center justify-between px-6 py-3">
+      <a href="#" class="flex items-center gap-2" aria-label="Top Laces inicio">
+        <svg viewBox="0 0 64 64" class="h-8 w-8 text-dark" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <rect x="7" y="7" width="50" height="50" rx="16" stroke="currentColor" stroke-width="4" />
+          <path d="M20 22H44" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+          <path d="M22 32H42" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+          <path d="M24 42H40" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+        </svg>
+        <span class="text-lg font-bold tracking-tight">Top Laces</span>
+      </a>
+      <nav class="hidden items-center gap-8 text-[13px] font-semibold text-dark/80 lg:flex">
+        <a href="#novedades" class="transition hover:text-dark">Novedades</a>
+        <a href="#coleccion" class="transition hover:text-dark">Colección</a>
+        <a href="#experiencia" class="transition hover:text-dark">Servicio</a>
+      </nav>
       <div class="flex items-center gap-3">
-        <button
-          class="hidden rounded-full border border-dark/10 bg-paper px-4 py-2 text-sm font-semibold md:inline-flex">Buscar</button>
-        <button
-          class="magnetic rounded-full bg-dark px-5 py-2.5 text-sm font-semibold text-paper transition hover:bg-accent">Comprar</button>
+        <button id="header-cart-btn"
+          class="magnetic rounded-full bg-dark px-5 py-2 text-[13px] font-semibold text-paper transition hover:scale-105">Carrito
+          (0)</button>
       </div>
     </div>
   </header>
 
   <main id="contenido">
-    <section class="relative overflow-hidden bg-[#0F172A] text-paper">
-      <div class="absolute inset-0">
-        <img
-          src="https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_617,c_limit/0d2c887d-787f-4db3-800e-d3e953b7a80a/nike-just-do-it.jpg"
-          alt="Zapatilla destacada en ambiente oscuro" width="828" height="1240" loading="lazy"
-          class="h-full w-full object-cover opacity-25">
+    <!-- Hero Section (Liquid Style) -->
+    <section class="relative min-h-[95vh] overflow-hidden bg-surface flex items-center pt-20">
+      <!-- Background Liquid Blobs -->
+      <div
+        class="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-blue-100/50 blur-3xl liquid-blob-1 -translate-y-1/2 -z-10 mix-blend-multiply">
       </div>
       <div
-        class="absolute inset-0 bg-[linear-gradient(90deg,rgba(15, 23, 42,0.94)_0%,rgba(15, 23, 42,0.82)_46%,rgba(15, 23, 42,0.48)_100%)]">
+        class="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-purple-100/40 blur-3xl liquid-blob-2 -z-10 mix-blend-multiply">
       </div>
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(59, 130, 246,0.18),transparent_26%)]">
-      </div>
-      <div
-        class="relative mx-auto grid min-h-[88vh] max-w-7xl items-center gap-10 px-4 py-16 md:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:py-24">
-        <div class="max-w-xl">
-          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.32em] text-muted/80">Top Laces</p>
-          <h1 class="text-4xl font-semibold leading-tight text-paper md:text-6xl">Sneakers de colección para
-            quienes saben lo que compran.</h1>
-          <p class="mt-5 text-base leading-7 text-paper/72 md:text-lg">Una tienda premium centrada en pares
-            icónicos, lanzamientos limitados y modelos con valor real dentro de la cultura sneaker.</p>
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+
+      <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-[1fr_1fr] z-10">
+        <div class="max-w-2xl slide-in-left">
+          <p class="mb-4 text-xs font-bold uppercase tracking-widest text-secondary">Presentamos</p>
+          <h1 class="text-6xl font-extrabold tracking-tightest leading-[1.05] text-dark md:text-[5.5rem]">
+            La estética de lo <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-black">exclusivo.</span>
+          </h1>
+          <p class="mt-6 text-lg leading-relaxed text-secondary md:text-xl font-medium max-w-lg">
+            Sneakers de colección verificadas. Diseños que desafían el tiempo. Encuentra pares icónicos y ediciones
+            limitadas con un servicio impecable.
+          </p>
+          <div class="mt-10 flex flex-col gap-4 sm:flex-row">
             <a href="#coleccion"
-              class="magnetic rounded-full bg-paper px-7 py-3 text-center text-sm font-semibold text-dark transition hover:bg-muted">Comprar
-              ahora</a>
+              class="magnetic rounded-full bg-dark px-8 py-3.5 text-center text-sm font-semibold text-paper shadow-soft">Explorar
+              colección</a>
             <a href="#modelo-estrella"
-              class="magnetic rounded-full border border-paper/20 px-7 py-3 text-center text-sm font-semibold text-paper transition hover:bg-paper/10">Ver
+              class="magnetic rounded-full bg-white border border-black/5 px-8 py-3.5 text-center text-sm font-semibold text-dark shadow-sm hover:shadow-md">Ver
               modelo estrella</a>
           </div>
-          <div class="mt-10 flex flex-wrap gap-6 border-t border-paper/10 pt-6 text-sm text-paper/70">
-            <span>Autenticidad verificada</span>
-            <span>Envío 24/48h</span>
-            <span>Pares limitados</span>
-          </div>
         </div>
 
-        <div id="modelo-estrella" class="relative lg:pl-8">
+        <div id="modelo-estrella" class="relative lg:pl-10 fade-up">
           <article
-            class="soft-card tilt-card overflow-hidden rounded-[2.75rem] border border-white/10 bg-white/5 shadow-luxe backdrop-blur-sm fade-up">
-            <div class="grid lg:grid-cols-[1.05fr_0.95fr]">
-              <div class="flex flex-col justify-between p-6 md:p-8">
-                <div>
-                  <p class="text-xs font-semibold uppercase tracking-[0.28em] text-accent">Modelo
-                    estrella</p>
-                  <h2 class="mt-4 text-3xl font-semibold text-paper md:text-4xl">Air Jordan 4</h2>
-                  <p class="mt-4 max-w-md text-sm leading-7 text-paper/68">Una de las siluetas más
-                    codiciadas del catálogo Jordan, reconocida por su lanzamiento original en 1989,
-                    su malla sobremoldeada y su peso cultural dentro del sneaker game.</p>
-                </div>
-                <div class="mt-8 flex items-end justify-between gap-4 border-t border-white/10 pt-5">
-                  <div>
-                    <p class="text-xs uppercase tracking-[0.22em] text-paper/45">Desde</p>
-                    <p class="mt-1 text-3xl font-bold text-paper">205 €</p>
-                  </div>
-                  <button
-                    class="magnetic rounded-full bg-accent px-5 py-3 text-sm font-semibold text-paper transition hover:bg-paper hover:text-dark">Añadir
-                    al carrito</button>
-                </div>
-              </div>
-              <div
-                class="flex items-center justify-center bg-[linear-gradient(180deg,rgba(255,255,255,0.04)_0%,rgba(221,216,203,0.09)_100%)] p-6 md:p-8">
-                <img
-                  src="https://images.stockx.com/images/Air-Jordan-4-Retro-White-Cement-2025.jpg?fit=fill&bg=FFFFFF&w=1200&h=857&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1737726370"
-                  alt="Air Jordan 4 White Cement" width="1200" height="857" loading="lazy"
-                  class="hero-feature-img w-full max-w-2xl drop-shadow-[0_30px_50px_rgba(0,0,0,0.55)]">
-              </div>
+            class="soft-card overflow-hidden bg-white/60 backdrop-blur-3xl border border-white p-8 md:p-12 relative flex flex-col items-center group">
+            <div class="absolute top-6 left-6">
+              <p class="text-[10px] font-bold uppercase tracking-widest text-secondary">Destacado</p>
+              <h2 class="mt-1 text-2xl font-bold tracking-tight">Air Jordan 4</h2>
+            </div>
+            <div class="absolute top-6 right-6">
+              <p class="text-xl font-bold">205 €</p>
+            </div>
+
+            <div class="mt-16 mb-8 w-full flex justify-center">
+              <img src="./assets/img/jordan retro 4 yellow thunder.png" alt="Air Jordan 4 White Cement" width="1200"
+                height="857" loading="lazy"
+                class="hero-feature-img w-full max-w-[90%] mix-blend-multiply drop-shadow-luxe">
+            </div>
+
+            <div class="w-full flex justify-between items-end border-t border-black/5 pt-6">
+              <p class="text-sm font-medium text-secondary max-w-[200px]">El ícono de 1989 rediseñado para
+                coleccionistas.</p>
+              <button class="add-to-cart magnetic rounded-full bg-dark px-6 py-2.5 text-sm font-semibold text-paper"
+                data-name="Air Jordan 4" data-price="205"
+                data-img="https://images.stockx.com/images/Air-Jordan-4-Retro-White-Cement-2025.jpg?fit=fill&bg=FFFFFF&w=1200&h=857&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1737726370">Añadir
+                al carrito</button>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="border-y border-dark/10 bg-paper py-4">
+    <section class="border-y border-black/5 bg-paper py-4">
       <div class="overflow-hidden">
         <div
-          class="marquee-track flex min-w-max gap-16 px-4 text-xs font-extrabold uppercase tracking-[0.35em] text-dark/55">
-          <span>Top Laces curated selection</span><span>Exclusive drops</span><span>Luxury sneaker
-            culture</span><span>Top Laces curated selection</span><span>Exclusive drops</span><span>Luxury
-            sneaker culture</span><span>Top Laces curated selection</span><span>Exclusive drops</span>
+          class="marquee-track flex min-w-max gap-20 px-4 text-[11px] font-bold uppercase tracking-widest text-secondary/60">
+          <span>Colección premium</span><span>Autenticidad verificada</span><span>Estética liquid</span>
+          <span>Colección premium</span><span>Autenticidad verificada</span><span>Estética liquid</span>
+          <span>Colección premium</span><span>Autenticidad verificada</span><span>Estética liquid</span>
         </div>
       </div>
     </section>
 
-    <section id="novedades" class="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 fade-up">
-      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <div>
-          <p class="text-xs font-bold uppercase tracking-[0.3em] text-accent">Novedades</p>
-          <h2 class="mt-3 text-3xl font-extrabold tracking-tight md:text-5xl">Últimos lanzamientos.</h2>
-        </div>
-        <p class="max-w-2xl text-dark/65 text-lg">Descubre las siluetas más recientes que acaban de llegar a nuestra
-          bóveda. Pares de edición limitada, colaboraciones exclusivas y clásicos reinventados para los verdaderos
-          coleccionistas.</p>
+    <section id="novedades" class="mx-auto max-w-7xl px-6 py-24 md:py-32 fade-up">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-4xl font-extrabold tracking-tight md:text-6xl">Últimos lanzamientos.</h2>
+        <p class="mt-6 text-xl text-secondary font-medium">Descubre las siluetas más recientes que acaban de llegar.
+          Minimalismo, diseño y valor real para verdaderos coleccionistas.</p>
       </div>
 
-      <div class="mt-10 grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
-        <article
-          class="group soft-card tilt-card relative overflow-hidden rounded-[2.75rem] bg-dark text-paper shadow-luxe">
-          <img src="https://images.unsplash.com/photo-1552346154-21d32810baa3?auto=format&fit=crop&w=1200&q=80"
-            alt="Zapatillas exclusivas" width="1200" height="900" loading="lazy"
-            class="absolute inset-0 h-full w-full object-cover opacity-60 transition-transform duration-[1.5s] ease-out group-hover:scale-105 group-hover:opacity-40">
-          <div
-            class="relative z-10 flex h-full min-h-[440px] flex-col justify-between bg-gradient-to-t from-dark via-dark/40 to-transparent p-8 md:p-10">
+      <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+        <article class="group soft-card relative overflow-hidden bg-white shadow-soft flex flex-col min-h-[480px]">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,0,0,0.03),transparent_50%)]">
+          </div>
+          <div class="relative z-10 flex flex-col h-full justify-between p-10 md:p-12">
             <div class="flex items-start justify-between">
               <span
-                class="rounded-full bg-accent/90 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-paper shadow-lg backdrop-blur-md">Drop
+                class="rounded-full bg-dark/5 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-dark backdrop-blur-md">Drop
                 Semanal</span>
-              <button
-                class="magnetic flex h-12 w-12 items-center justify-center rounded-full bg-paper/10 text-paper backdrop-blur-md transition hover:bg-paper hover:text-dark">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                  </path>
-                </svg>
-              </button>
             </div>
-            <div class="mt-auto transform transition-all duration-500 group-hover:-translate-y-2">
-              <h3 class="font-display text-4xl font-bold leading-tight md:text-5xl">Air Jordan 1 Retro<br><span
-                  class="text-accent">"Lost & Found"</span></h3>
-              <p class="mt-4 max-w-md text-paper/80">La leyenda regresa con un aspecto vintage desgastado que cuenta una
-                historia de descubrimiento en los archivos.</p>
-              <div class="mt-8 flex items-center gap-6">
-                <a href="#comprar"
-                  class="inline-flex items-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm font-bold text-dark transition hover:bg-muted">
-                  Comprar ahora
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
-                <span class="text-2xl font-extrabold tracking-tight">450 €</span>
-              </div>
+            <div class="flex-1 flex items-center justify-center py-8">
+              <img src="assets/img/Jordan retro 1 chicago lost and found.png" alt="Lost and Found"
+                class="hero-feature-img mix-blend-multiply drop-shadow-xl scale-110">
             </div>
-          </div>
-        </article>
-
-        <div class="grid gap-6">
-          <article
-            class="group soft-card relative overflow-hidden rounded-[2.5rem] bg-muted p-8 text-dark shadow-[0_18px_45px_rgba(15, 23, 42,0.08)]">
-            <div
-              class="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-accent/15 blur-3xl transition-all duration-700 group-hover:bg-accent/30">
-            </div>
-            <div class="relative z-10 flex h-full flex-col justify-between">
+            <div class="mt-auto flex items-end justify-between border-t border-black/5 pt-6">
               <div>
-                <div class="flex items-start justify-between">
-                  <p class="text-xs font-bold uppercase tracking-[0.3em] text-accent">Collab Exclusiva</p>
-                  <span class="rounded-full bg-dark px-3 py-1 text-xs font-bold text-paper">Agotado</span>
-                </div>
-                <h3 class="mt-4 text-2xl font-extrabold leading-tight">Yeezy Boost 700 "Wave Runner"</h3>
-                <p class="mt-2 text-sm text-dark/70">El chunky sneaker que lo empezó todo.</p>
+                <h3 class="text-3xl font-bold tracking-tight">AJ1 Retro <span class="text-secondary">Lost & Found</span>
+                </h3>
+                <p class="mt-2 text-sm text-secondary font-medium max-w-sm">La leyenda regresa con un aspecto vintage
+                  desgastado.</p>
               </div>
-              <div
-                class="mt-6 flex items-center justify-center rounded-2xl bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.7)_0%,transparent_80%)] p-4 transition-transform duration-500 group-hover:scale-105" style="aspect-ratio:4/3;overflow:hidden">
-                <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=600&q=80"
-                  alt="Yeezy 700" class="mini-product-img h-full w-full object-contain mix-blend-multiply drop-shadow-2xl" loading="lazy">
-              </div>
-            </div>
-          </article>
-
-          <article
-            class="group soft-card relative overflow-hidden rounded-[2.5rem] border border-dark/10 bg-paper p-8 shadow-[0_18px_45px_rgba(15, 23, 42,0.08)]">
-            <div
-              class="absolute -bottom-12 -left-12 h-48 w-48 rounded-full bg-dark/5 blur-3xl transition-all duration-700 group-hover:bg-dark/10">
-            </div>
-            <div class="relative z-10 flex h-full flex-col justify-between">
-              <div class="flex items-start justify-between">
-                <div>
-                  <p class="text-xs font-bold uppercase tracking-[0.3em] text-dark/40">Restock</p>
-                  <h3 class="mt-3 text-2xl font-extrabold leading-tight">New Balance 550</h3>
-                  <p class="mt-1 text-sm text-dark/65">White / Green</p>
-                </div>
-                <span class="text-xl font-extrabold">130 €</span>
-              </div>
-              <div class="mt-6 flex items-end justify-between">
+              <div class="text-right">
+                <span class="block text-2xl font-bold tracking-tight mb-3">450 €</span>
                 <button
-                  class="magnetic rounded-full border border-dark/10 bg-paper px-5 py-2.5 text-sm font-bold transition hover:border-accent hover:text-accent">Añadir</button>
-                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=400&q=80"
-                  alt="New Balance 550"
-                  class="mini-product-img h-36 w-36 origin-bottom-right object-contain drop-shadow-xl transition-transform duration-500 group-hover:-rotate-3 group-hover:scale-110"
-                  loading="lazy">
+                  class="add-to-cart inline-flex items-center justify-center rounded-full bg-dark px-6 py-2.5 text-sm font-semibold text-paper transition hover:scale-105"
+                  data-name="AJ1 Retro Lost & Found" data-price="450"
+                  data-img="assets/img/Jordan retro 1 chicago lost and found.png">Comprar</button>
               </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <section id="coleccion" class="bg-paper py-16 md:py-24 fade-up">
-      <div class="mx-auto max-w-7xl px-4 md:px-8">
-        <div class="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p class="text-xs font-bold uppercase tracking-[0.3em] text-accent">Colección</p>
-            <h2 class="mt-3 text-3xl font-extrabold tracking-tight md:text-5xl">Sneakers que se sienten exclusivas.</h2>
-          </div>
-          <a href="#" class="text-sm font-bold text-dark underline decoration-accent decoration-2 underline-offset-4">Ver todo</a>
-        </div>
-        <div id="collection-tabs" class="mb-10 flex flex-wrap gap-2"></div>
-        <div id="collection-grid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-4"></div>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <section id="experiencia" class="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 fade-up">
-      <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-        <article
-          class="soft-card rounded-[2.75rem] bg-[linear-gradient(145deg,#111111_0%,#1a1a1a_55%,#101314_100%)] p-8 text-paper shadow-luxe md:p-10">
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-muted/75">Servicio Top Laces</p>
-          <h2 class="mt-4 text-3xl font-semibold text-paper md:text-5xl">Compra con calma, recibe con
-            seguridad.</h2>
-          <p class="mt-5 max-w-xl text-base leading-8 text-paper/70">Cada par pasa por control visual,
-            embalaje premium y envío rápido. La experiencia está pensada para sentirse cuidada desde que
-            entras hasta que recibes la caja en casa.</p>
-          <div class="mt-8 grid gap-4 sm:grid-cols-3">
-            <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
-              <p class="text-2xl font-semibold" data-count="24">0</p>
-              <p class="mt-2 text-sm text-paper/62">Horas de preparación</p>
-            </div>
-            <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
-              <p class="text-2xl font-semibold" data-count="100">0</p>
-              <p class="mt-2 text-sm text-paper/62">Autenticidad revisada</p>
-            </div>
-            <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
-              <p class="text-2xl font-semibold" data-count="48">0</p>
-              <p class="mt-2 text-sm text-paper/62">Horas de entrega estimada</p>
             </div>
           </div>
         </article>
 
-        <div class="grid gap-6">
+        <div class="grid gap-8">
           <article
-            class="soft-card rounded-[2.5rem] border border-dark/10 bg-paper p-8 shadow-[0_18px_45px_rgba(15, 23, 42,0.08)]">
-            <p class="text-xs font-semibold uppercase tracking-[0.28em] text-accent">Entrega premium</p>
-            <h3 class="mt-3 text-2xl font-semibold">Packaging limpio y protegido.</h3>
-            <p class="mt-3 text-dark/65">Caja exterior reforzada, presentación cuidada y un unboxing alineado
-              con una tienda de sneakers premium.</p>
+            class="group soft-card relative overflow-hidden bg-white p-8 shadow-subtle flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-secondary">Collab</p>
+                <span class="rounded-full bg-black/5 px-3 py-1 text-[10px] font-bold text-dark">Limitado</span>
+              </div>
+              <h3 class="mt-3 text-2xl font-bold tracking-tight">Yeezy Boost 700</h3>
+              <p class="mt-1 text-sm font-medium text-secondary">El chunky sneaker original.</p>
+            </div>
+            <div class="mt-6 flex items-center justify-center p-4">
+              <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=600&q=80"
+                alt="Yeezy 700"
+                class="mini-product-img w-full mix-blend-multiply drop-shadow-lg transition-transform duration-700 group-hover:scale-105"
+                loading="lazy">
+            </div>
           </article>
+
           <article
-            class="soft-card rounded-[2.5rem] border border-dark/10 bg-paper p-8 shadow-[0_18px_45px_rgba(15, 23, 42,0.08)]">
-            <p class="text-xs font-semibold uppercase tracking-[0.28em] text-accent">Selección curada</p>
-            <h3 class="mt-3 text-2xl font-semibold">Menos ruido, mejores pares.</h3>
-            <p class="mt-3 text-dark/65">El catálogo prioriza modelos con demanda real, colorways
-              reconocibles y lanzamientos que sí aportan valor a la tienda.</p>
+            class="group soft-card relative overflow-hidden bg-white p-8 shadow-subtle flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-[10px] font-bold uppercase tracking-widest text-secondary">Restock</p>
+                <h3 class="mt-2 text-xl font-bold tracking-tight">New Balance 550</h3>
+              </div>
+              <span class="text-lg font-bold tracking-tight">130 €</span>
+            </div>
+            <div class="mt-4 flex items-end justify-between">
+              <button
+                class="add-to-cart magnetic rounded-full bg-dark/5 px-5 py-2 text-xs font-bold transition hover:bg-dark hover:text-paper"
+                data-name="New Balance 550" data-price="130"
+                data-img="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=400&q=80">Añadir</button>
+              <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=400&q=80"
+                alt="New Balance 550"
+                class="mini-product-img h-32 w-32 object-contain mix-blend-multiply drop-shadow-md transition-transform duration-500 group-hover:scale-110"
+                loading="lazy">
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section id="coleccion" class="bg-surface py-24 md:py-32 fade-up">
+      <div class="mx-auto max-w-[90rem] px-6">
+        <div class="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h2 class="text-4xl font-extrabold tracking-tight md:text-5xl">La Colección.</h2>
+            <p class="mt-4 text-lg text-secondary font-medium">Exclusividad al alcance de un clic.</p>
+          </div>
+          <div id="collection-tabs"
+            class="flex flex-wrap gap-2 bg-white/50 backdrop-blur-md p-1.5 rounded-full border border-black/5 shadow-sm">
+          </div>
+        </div>
+        <div id="collection-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section id="experiencia" class="mx-auto max-w-7xl px-6 py-24 md:py-32 fade-up">
+      <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+        <article class="soft-card bg-white p-10 md:p-14 relative overflow-hidden">
+          <div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-50 blur-3xl rounded-full"></div>
+          <p class="text-[11px] font-bold uppercase tracking-widest text-secondary relative z-10">La Experiencia Top
+            Laces</p>
+          <h2 class="mt-4 text-4xl font-bold tracking-tight text-dark md:text-5xl relative z-10 leading-[1.1]">
+            Compra con calma,<br>recibe con seguridad.
+          </h2>
+          <p class="mt-6 max-w-xl text-lg text-secondary font-medium relative z-10">
+            Cada par pasa por control visual, embalaje premium y envío rápido. La experiencia está pensada para sentirse
+            fluida e impecable.
+          </p>
+          <div class="mt-12 grid gap-6 sm:grid-cols-3 relative z-10">
+            <div class="border-l-2 border-black/10 pl-6">
+              <p class="text-4xl font-bold tracking-tight" data-count="24">0</p>
+              <p class="mt-2 text-xs font-semibold text-secondary uppercase tracking-wider">Horas de prep.</p>
+            </div>
+            <div class="border-l-2 border-black/10 pl-6">
+              <p class="text-4xl font-bold tracking-tight" data-count="100">0</p>
+              <p class="mt-2 text-xs font-semibold text-secondary uppercase tracking-wider">Autenticidad</p>
+            </div>
+            <div class="border-l-2 border-black/10 pl-6">
+              <p class="text-4xl font-bold tracking-tight" data-count="48">0</p>
+              <p class="mt-2 text-xs font-semibold text-secondary uppercase tracking-wider">Entrega máx.</p>
+            </div>
+          </div>
+        </article>
+
+        <div class="grid gap-8">
+          <article class="soft-card bg-white p-10 flex flex-col justify-center">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-secondary">Entrega</p>
+            <h3 class="mt-2 text-2xl font-bold tracking-tight">Packaging protegido.</h3>
+            <p class="mt-3 text-sm font-medium text-secondary">Caja exterior reforzada y una presentación de producto
+              alineada con una tienda boutique.</p>
+          </article>
+          <article class="soft-card bg-white p-10 flex flex-col justify-center">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-secondary">Selección</p>
+            <h3 class="mt-2 text-2xl font-bold tracking-tight">Menos ruido.</h3>
+            <p class="mt-3 text-sm font-medium text-secondary">El catálogo prioriza modelos con demanda real y diseños
+              limpios que aportan valor.</p>
           </article>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="border-t border-dark/10 bg-paper">
-    <div
-      class="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 md:flex-row md:items-center md:justify-between md:px-8">
-      <div>
-        <p class="text-xs font-bold uppercase tracking-[0.3em] text-accent">Top Laces</p>
-        <p class="mt-2 text-sm text-dark/65">Sneakers curadas con estética premium.</p>
+  <!-- Cart Overlay -->
+  <div id="cart-overlay" class="fixed inset-0 z-[100] hidden bg-black/50 backdrop-blur-sm transition-opacity opacity-0">
+  </div>
+
+  <!-- Cart Sidebar -->
+  <div id="cart-sidebar"
+    class="fixed top-0 right-0 z-[101] h-full w-full max-w-md translate-x-full bg-white/90 backdrop-blur-2xl shadow-[0_0_80px_rgba(0,0,0,0.15)] transition-transform duration-500 flex flex-col border-l border-white">
+    <div class="flex items-center justify-between border-b border-black/5 px-8 py-6">
+      <h2 class="text-2xl font-extrabold tracking-tight">Tu Colección</h2>
+      <button id="close-cart" class="rounded-full p-2.5 bg-surface hover:bg-black/5 transition-colors group">
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none"
+          stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-90">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div id="cart-items" class="flex-1 overflow-y-auto px-8 py-6 flex flex-col gap-4">
+      <!-- Cart items will be injected here -->
+    </div>
+    <div class="border-t border-black/5 px-8 py-8 bg-gradient-to-t from-white to-transparent">
+      <div class="flex justify-between items-end mb-6">
+        <span class="font-bold text-secondary text-sm uppercase tracking-wider">Total Estimado</span>
+        <span class="font-extrabold text-3xl tracking-tight" id="cart-total">0 €</span>
       </div>
-      <nav class="flex flex-wrap gap-5 text-sm font-semibold text-dark/75">
-        <a href="#novedades" class="hover:text-accent">Novedades</a>
-        <a href="#coleccion" class="hover:text-accent">Colección</a>
-        <a href="#experiencia" class="hover:text-accent">Experiencia</a>
+      <button id="checkout-btn"
+        class="relative w-full rounded-2xl bg-dark py-5 text-base font-bold text-paper transition-all duration-300 hover:scale-[1.02] hover:shadow-luxe overflow-hidden group disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed">
+        <span class="relative z-10 flex items-center justify-center gap-2">
+          Proceder al pago
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </span>
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite]"></div>
+      </button>
+    </div>
+  </div>
+
+  <footer class="bg-paper border-t border-black/5 pt-16 pb-8">
+    <div class="mx-auto max-w-7xl px-6 flex flex-col items-center text-center gap-6">
+      <div>
+        <svg viewBox="0 0 64 64" class="h-10 w-10 text-dark mx-auto mb-4" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <rect x="7" y="7" width="50" height="50" rx="16" stroke="currentColor" stroke-width="4" />
+          <path d="M20 22H44" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+          <path d="M22 32H42" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+          <path d="M24 42H40" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+        </svg>
+        <p class="text-[11px] font-bold uppercase tracking-widest text-dark">Top Laces</p>
+        <p class="mt-2 text-sm font-medium text-secondary">Diseño premium. Estética impecable.</p>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-8 text-sm font-semibold text-secondary mt-4">
+        <a href="#novedades" class="hover:text-dark transition">Novedades</a>
+        <a href="#coleccion" class="hover:text-dark transition">Colección</a>
+        <a href="#experiencia" class="hover:text-dark transition">Experiencia</a>
       </nav>
+      <p class="mt-10 text-xs font-medium text-secondary/60">© 2026 Top Laces. Liquid Design Initiative.</p>
     </div>
   </footer>
 
   <script>
+    // Header Blur on Scroll
     const header = document.getElementById('site-header');
     const onScroll = () => {
-      if (window.scrollY > 20) header.classList.add('nav-scrolled');
-      else header.classList.remove('nav-scrolled');
+      if (window.scrollY > 20) {
+        header.classList.add('nav-scrolled');
+        header.classList.remove('top-4', 'max-w-[85%]', 'lg:max-w-4xl');
+        header.classList.add('top-0', 'max-w-full', 'rounded-none', 'border-t-0', 'border-x-0');
+      } else {
+        header.classList.remove('nav-scrolled', 'top-0', 'max-w-full', 'rounded-none', 'border-t-0', 'border-x-0');
+        header.classList.add('top-4', 'max-w-[85%]', 'lg:max-w-4xl');
+      }
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
+    // Intersection Observer for fade-up animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add('in-view');
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
       });
-    }, { threshold: 0.16 });
+    }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
 
+    // Number Counter Animation
     document.querySelectorAll('[data-count]').forEach((el) => {
       let done = false;
       const target = Number(el.dataset.count);
@@ -373,11 +393,12 @@
         if (done) return;
         done = true;
         let start = 0;
-        const duration = 1200;
+        const duration = 1500;
         const startTime = performance.now();
         const animate = (now) => {
           const progress = Math.min((now - startTime) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
+          // Apple-like easeOutExpo curve
+          const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
           el.textContent = Math.floor(start + (target - start) * eased) + (target === 100 ? '%' : 'h');
           if (progress < 1) requestAnimationFrame(animate);
         };
@@ -391,62 +412,48 @@
       countObserver.observe(el);
     });
 
-    document.querySelectorAll('.tilt-card').forEach((card) => {
-      card.addEventListener('mousemove', (e) => {
-        if (window.innerWidth < 1024) return;
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const rotateY = ((x / rect.width) - 0.5) * 6;
-        const rotateX = ((y / rect.height) - 0.5) * -6;
-        card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0px)';
-      });
-    });
-
+    // Magnetic Button Effect
     document.querySelectorAll('.magnetic').forEach((button) => {
       button.addEventListener('mousemove', (e) => {
         const rect = button.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        button.style.transform = `translate(${x * 0.08}px, ${y * 0.08}px)`;
+        button.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px) scale(1.05)`;
       });
       button.addEventListener('mouseleave', () => {
-        button.style.transform = 'translate(0,0)';
+        button.style.transform = 'translate(0,0) scale(1)';
       });
     });
 
-    /* ---- Collection: Dynamic cards from nombres.txt ---- */
+    /* ---- Collection Data ---- */
     const sneakers = [
-      { name:'Jordan Retro 1 Chicago Lost and Found', brand:'Nike / Jordan', cat:'nike', price:'450 €', img:'assets/img/Jordan retro 1 chicago lost and found.png', gradient:'#8B0000,#1a1a1a', desc:'La leyenda que lo empezó todo, regresa con acabado vintage.' },
-      { name:'Jordan Retro 1 Obsidian High', brand:'Nike / Jordan', cat:'nike', price:'400 €', img:'assets/img/Jordan retro 1 obsidian high.png', gradient:'#1e3a5f,#0F172A', desc:'Tonos obsidiana y university blue en una silueta inmortal.' },
-      { name:'Jordan 1 Low Travis Scott x Fragment', brand:'Nike / Jordan', cat:'nike', price:'1.400 €', img:'assets/img/Jordan retro 1 low travis scott x fragment.png', gradient:'#2d4a7a,#0a1628', desc:'Triple collab legendaria. Fragment x Cactus Jack x Jordan.' },
-      { name:'Jordan Retro 4 Yellow Thunder', brand:'Nike / Jordan', cat:'nike', price:'300 €', img:'assets/img/jordan retro 4 yellow thunder.png', gradient:'#d4a017,#1a1a1a', desc:'Thunder amarillo sobre negro: contraste icónico de los 90.' },
-      { name:'Nike AF1 x Louis Vuitton', brand:'Nike / Jordan', cat:'nike', price:'8.000 €', img:'assets/img/Nike af1 x louis vuitton.png', gradient:'#3d2b1f,#0F172A', desc:'Virgil Abloh fusionó el lujo parisino con el streetwear.' },
-      { name:'Yeezy 350 Zebra', brand:'Yeezy / Adidas', cat:'yeezy', price:'300 €', img:'assets/img/Yeezy 350 zebra.png', gradient:'#e0e0e0,#1a1a1a', desc:'El patrón zebra que definió una era del sneaker game.' },
-      { name:'Adidas Forum Bad Bunny Azules', brand:'Yeezy / Adidas', cat:'yeezy', price:'300 €', img:'assets/img/Adidas forum bad bunny azules.png', gradient:'#85a1c1,#e2e8f0', desc:'Bad Bunny x Adidas: azul con actitud latina.' },
-      { name:'Adidas x Pharrell Williams', brand:'Yeezy / Adidas', cat:'yeezy', price:'300 €', img:'assets/img/Adidas x pharrem williams.png', gradient:'#f5c518,#ff8c00', desc:'Human Race: color vibrante y mensaje positivo.' },
-      { name:'Yeezy Slide Bone', brand:'Yeezy / Adidas', cat:'yeezy', price:'140 €', img:'assets/img/Yeezy slide bone.png', gradient:'#d4c9a8,#f0ead6', desc:'Minimalismo total. La slide que conquistó el streetwear.' },
-      { name:'Yeezy Foam Runner Onyx', brand:'Yeezy / Adidas', cat:'yeezy', price:'150 €', img:'assets/img/Yeezy foam onyx.png', gradient:'#1a1a1a,#333333', desc:'Forma alienígena, comodidad terrestre. Foam futurista.' },
-      { name:'Air Jordan 1 x Off-White', brand:'Off-White', cat:'offwhite', price:'5.500 €', img:'assets/img/Air Jordan 1 x off white.png', gradient:'#e8e8e8,#b0b0b0', desc:'La deconstrucción que cambió la industria para siempre.' },
-      { name:'Air Max 90 x Off-White', brand:'Off-White', cat:'offwhite', price:'1.000 €', img:'assets/img/Air Max 90 x off white.png', gradient:'#f5f0e1,#d4c9a8', desc:'Virgil reimaginó el clásico runner con su visión única.' },
-      { name:'Air Presto x Off-White', brand:'Off-White', cat:'offwhite', price:'800 €', img:'assets/img/Air Presto. x off white.png', gradient:'#1a1a1a,#444', desc:'Presto deconstruido: transparencia y etiquetas icónicas.' },
-      { name:'Air Vapormax x Off-White', brand:'Off-White', cat:'offwhite', price:'400 €', img:'assets/img/Air Vapormax x off white.png', gradient:'#c8d6e5,#dfe6ed', desc:'Cámara de aire expuesta, diseño transparente radical.' },
-      { name:'Blazer Mid x Off-White', brand:'Off-White', cat:'offwhite', price:'1.200 €', img:'assets/img/Blazer Mid x off white.png', gradient:'#f5f5f5,#e0e0e0', desc:'El Blazer vintage llevado al arte contemporáneo.' },
-      { name:'Converse Chuck Taylor x Off-White', brand:'Off-White', cat:'offwhite', price:'1.200 €', img:'https://images.stockx.com/images/Converse-Chuck-Taylor-All-Star-Vulcanized-Hi-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', gradient:'#f8f4e3,#e8dcc8', desc:'Chuck Taylor deconstruido: lona cruda y costuras vistas.' },
-      { name:'Zoom Fly SP x Off-White', brand:'Off-White', cat:'offwhite', price:'400 €', img:'assets/img/Zoom Fly SP x off white.png', gradient:'#f8c8d4,#f0a0b8', desc:'Rendimiento running con estética de pasarela.' },
-      { name:'Air Force 1 Low x Off-White', brand:'Off-White', cat:'offwhite', price:'1.500 €', img:'assets/img/Air Force 1 Low x off white .png', gradient:'#f0ead6,#d4c9a8', desc:'El AF1 reimaginado con la marca registrada de Virgil.' },
-      { name:'React Hyperdunk x Off-White', brand:'Off-White', cat:'offwhite', price:'800 €', img:'assets/img/React Hyperdunk x off white.png', gradient:'#1a1a1a,#2d2d2d', desc:'Performance basketball con el ADN de Off-White.' },
-      { name:'Air Max 97 x Off-White', brand:'Off-White', cat:'offwhite', price:'1.200 €', img:'assets/img/Air Max 97 x off white.png', gradient:'#c0c0c0,#e8e8e8', desc:'Silver bullet deconstruida con suela traslúcida.' }
+      { name: 'AJ1 Retro Chicago', brand: 'Jordan', cat: 'nike', price: '450 €', img: 'assets/img/Jordan retro 1 chicago lost and found.png', desc: 'La leyenda que lo empezó todo, con acabado vintage.' },
+      { name: 'AJ1 Retro Obsidian', brand: 'Jordan', cat: 'nike', price: '400 €', img: 'assets/img/Jordan retro 1 obsidian high.png', desc: 'Tonos obsidian y university blue en una silueta inmortal.' },
+      { name: 'AJ1 Low Travis Scott', brand: 'Jordan', cat: 'nike', price: '1.400 €', img: 'assets/img/Jordan retro 1 low travis scott x fragment.png', desc: 'Triple collab legendaria. Fragment x Cactus Jack.' },
+      { name: 'AJ4 Yellow Thunder', brand: 'Jordan', cat: 'nike', price: '300 €', img: 'assets/img/jordan retro 4 yellow thunder.png', desc: 'Contraste icónico de los años 90.' },
+      { name: 'AF1 x Louis Vuitton', brand: 'Nike', cat: 'nike', price: '8.000 €', img: 'assets/img/Nike af1 x louis vuitton.png', desc: 'El lujo parisino fusionado con el streetwear puro.' },
+      { name: 'Yeezy 350 Zebra', brand: 'Yeezy', cat: 'yeezy', price: '300 €', img: 'assets/img/Yeezy 350 zebra.png', desc: 'El patrón que definió una era entera.' },
+      { name: 'Forum Bad Bunny', brand: 'Adidas', cat: 'yeezy', price: '300 €', img: 'assets/img/Adidas forum bad bunny azules.png', desc: 'Diseño robusto con actitud urbana.' },
+      { name: 'NMD Hu Pharrell', brand: 'Adidas', cat: 'yeezy', price: '300 €', img: 'assets/img/Adidas x pharrem williams.png', desc: 'Color vibrante y mensaje humano.' },
+      { name: 'Yeezy Slide Bone', brand: 'Yeezy', cat: 'yeezy', price: '140 €', img: 'assets/img/Yeezy slide bone.png', desc: 'Minimalismo extremo para el streetwear.' },
+      { name: 'Yeezy Foam Onyx', brand: 'Yeezy', cat: 'yeezy', price: '150 €', img: 'assets/img/Yeezy foam onyx.png', desc: 'Silueta alienígena, comodidad terrestre.' },
+      { name: 'AJ1 x Off-White', brand: 'Off-White', cat: 'offwhite', price: '5.500 €', img: 'assets/img/Air Jordan 1 x off white.png', desc: 'La deconstrucción que cambió la industria.' },
+      { name: 'Air Max 90 x Off-White', brand: 'Off-White', cat: 'offwhite', price: '1.000 €', img: 'assets/img/Air Max 90 x off white.png', desc: 'El clásico reimaginado con visión industrial.' },
+      { name: 'Air Presto x Off-White', brand: 'Off-White', cat: 'offwhite', price: '800 €', img: 'assets/img/Air Presto. x off white.png', desc: 'Transparencia, bridas y diseño crudo.' },
+      { name: 'Vapormax x Off-White', brand: 'Off-White', cat: 'offwhite', price: '400 €', img: 'assets/img/Air Vapormax x off white.png', desc: 'Cámara de aire expuesta al máximo nivel.' },
+      { name: 'Blazer Mid x Off-White', brand: 'Off-White', cat: 'offwhite', price: '1.200 €', img: 'assets/img/Blazer Mid x off white.png', desc: 'La zapatilla vintage como lienzo contemporáneo.' },
+      { name: 'Chuck Taylor x Off-White', brand: 'Off-White', cat: 'offwhite', price: '1.200 €', img: 'https://images.stockx.com/images/Converse-Chuck-Taylor-All-Star-Vulcanized-Hi-Off-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90', desc: 'Lona deconstruida y costuras técnicas.' },
+      { name: 'Zoom Fly x Off-White', brand: 'Off-White', cat: 'offwhite', price: '400 €', img: 'assets/img/Zoom Fly SP x off white.png', desc: 'Rendimiento llevado a la pasarela de moda.' },
+      { name: 'AF1 Low x Off-White', brand: 'Off-White', cat: 'offwhite', price: '1.500 €', img: 'assets/img/Air Force 1 Low x off white .png', desc: 'Materiales translúcidos en una silueta eterna.' },
+      { name: 'Hyperdunk x Off-White', brand: 'Off-White', cat: 'offwhite', price: '800 €', img: 'assets/img/React Hyperdunk x off white.png', desc: 'Basketball de alto rendimiento estilizado.' },
+      { name: 'Air Max 97 x Off-White', brand: 'Off-White', cat: 'offwhite', price: '1.200 €', img: 'assets/img/Air Max 97 x off white.png', desc: 'Deconstrucción fluida de la bala de plata.' }
     ];
 
     const categories = [
-      { id:'all', label:'Todos' },
-      { id:'nike', label:'Nike / Jordan' },
-      { id:'yeezy', label:'Yeezy / Adidas' },
-      { id:'offwhite', label:'Off-White' }
+      { id: 'all', label: 'Todos' },
+      { id: 'nike', label: 'Nike / Jordan' },
+      { id: 'yeezy', label: 'Adidas / Yeezy' },
+      { id: 'offwhite', label: 'Off-White' }
     ];
 
     const tabsEl = document.getElementById('collection-tabs');
@@ -464,23 +471,22 @@
     function renderCards(list) {
       gridEl.innerHTML = '';
       list.forEach((s, i) => {
-        const [g1, g2] = s.gradient.split(',');
-        const isDark = isColorDark(g1);
         const card = document.createElement('article');
-        card.className = `soft-card shimmer-card overflow-hidden rounded-[2.2rem] border border-dark/10 bg-surface shadow-[0_18px_45px_rgba(15,23,42,0.08)] fade-up fade-up-d${Math.min(i + 1, 10)}`;
+        // Usamos delay progresivo para un efecto cascada fluido
+        card.className = `soft-card overflow-hidden fade-up fade-up-d${Math.min(i + 1, 10)} flex flex-col`;
         card.innerHTML = `
-          <div class="product-card-img-wrapper relative overflow-hidden bg-white">
-            <img src="${s.img}" alt="${s.name}" loading="lazy" class="product-card-img mix-blend-multiply drop-shadow-xl">
+          <div class="product-card-img-wrapper p-6">
+            <img src="${s.img}" alt="${s.name}" loading="lazy" class="product-card-img mix-blend-multiply drop-shadow-md">
           </div>
-          <div class="p-6">
-            <div class="flex items-center justify-between">
-              <span class="brand-pill bg-accent/10 text-accent">${s.brand}</span>
+          <div class="p-6 flex-1 flex flex-col justify-between border-t border-black/5">
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-widest text-secondary">${s.brand}</span>
+              <h3 class="mt-1 text-lg font-bold tracking-tight text-dark">${s.name}</h3>
+              <p class="mt-2 text-[13px] font-medium text-secondary/80 leading-relaxed">${s.desc}</p>
             </div>
-            <h3 class="mt-3 text-lg font-extrabold leading-tight">${s.name}</h3>
-            <p class="mt-2 text-sm text-dark/60 leading-relaxed">${s.desc}</p>
-            <div class="mt-5 flex items-center justify-between border-t border-dark/5 pt-4">
-              <span class="text-lg font-extrabold">${s.price}</span>
-              <button class="magnetic rounded-full border border-dark/10 bg-paper px-4 py-2 text-sm font-bold transition hover:border-accent hover:text-accent">Comprar</button>
+            <div class="mt-6 flex items-center justify-between">
+              <span class="text-xl font-bold tracking-tight">${s.price}</span>
+              <button class="add-to-cart magnetic rounded-full bg-dark/5 px-4 py-2 text-xs font-bold text-dark transition hover:bg-dark hover:text-paper" data-name="${s.name}" data-price="${s.price.replace(' €', '').replace('.', '')}" data-img="${s.img}">Comprar</button>
             </div>
           </div>`;
         gridEl.appendChild(card);
@@ -495,15 +501,119 @@
       renderCards(filtered);
     }
 
-    function isColorDark(hex) {
-      const c = hex.replace('#','');
-      const r = parseInt(c.substring(0,2),16);
-      const g = parseInt(c.substring(2,4),16);
-      const b = parseInt(c.substring(4,6),16);
-      return (r * 299 + g * 587 + b * 114) / 1000 < 128;
+    renderCards(sneakers);
+
+    /* ---- Cart & Checkout Logic ---- */
+    const cartOverlay = document.getElementById('cart-overlay');
+    const cartSidebar = document.getElementById('cart-sidebar');
+    const closeCartBtn = document.getElementById('close-cart');
+    const checkoutBtn = document.getElementById('checkout-btn');
+    const headerCartBtn = document.getElementById('header-cart-btn');
+
+    function openCart() {
+      cartOverlay.classList.remove('hidden');
+      setTimeout(() => {
+        cartOverlay.classList.remove('opacity-0');
+        cartSidebar.classList.remove('translate-x-full');
+      }, 10);
     }
 
-    renderCards(sneakers);
+    function closeCart() {
+      cartOverlay.classList.add('opacity-0');
+      cartSidebar.classList.add('translate-x-full');
+      setTimeout(() => {
+        cartOverlay.classList.add('hidden');
+      }, 500);
+    }
+
+    closeCartBtn.addEventListener('click', closeCart);
+    cartOverlay.addEventListener('click', closeCart);
+    if (headerCartBtn) headerCartBtn.addEventListener('click', openCart);
+
+    checkoutBtn.addEventListener('click', () => {
+      window.location.href = 'checkout.html';
+    });
+
+    let cart = [];
+    try {
+      const savedCart = localStorage.getItem('toplaces_cart');
+      if (savedCart) {
+        cart = JSON.parse(savedCart);
+      }
+    } catch (e) { }
+
+    function updateCartUI() {
+      const cartItemsEl = document.getElementById('cart-items');
+      const cartTotalEl = document.getElementById('cart-total');
+
+      cartItemsEl.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        total += item.price;
+        const itemEl = document.createElement('div');
+        itemEl.className = 'group flex items-center gap-5 p-3 -mx-3 rounded-2xl transition-colors hover:bg-surface border border-transparent hover:border-black/5';
+        itemEl.innerHTML = `
+          <div class="h-24 w-24 rounded-xl bg-white shadow-sm border border-black/5 p-2 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.02),transparent)]"></div>
+            <img src="${item.img}" class="mix-blend-multiply drop-shadow-md w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+          </div>
+          <div class="flex-1 py-2">
+            <h3 class="font-extrabold text-sm leading-tight text-dark/90 line-clamp-2">${item.name}</h3>
+            <p class="text-sm font-bold text-dark mt-2">${item.price} €</p>
+          </div>
+          <button class="remove-from-cart text-secondary/50 hover:text-red-500 hover:bg-red-50 transition-all p-2.5 rounded-full" data-index="${index}" title="Eliminar">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+          </button>
+        `;
+        cartItemsEl.appendChild(itemEl);
+      });
+
+      if (cart.length === 0) {
+        cartItemsEl.innerHTML = `
+          <div class="flex flex-col items-center justify-center h-full opacity-60 mt-10">
+            <svg viewBox="0 0 64 64" class="h-16 w-16 text-secondary mb-4" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="7" y="7" width="50" height="50" rx="16" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4" />
+              <path d="M24 32h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <p class="text-center font-bold text-secondary text-sm">Tu colección está vacía</p>
+            <p class="text-center font-medium text-secondary/70 text-xs mt-2">Añade joyas para empezar tu legado.</p>
+          </div>
+        `;
+        checkoutBtn.disabled = true;
+      } else {
+        checkoutBtn.disabled = false;
+      }
+
+      cartTotalEl.textContent = total + ' €';
+      if (headerCartBtn) headerCartBtn.textContent = 'Carrito (' + cart.length + ')';
+      localStorage.setItem('toplaces_cart', JSON.stringify(cart));
+    }
+
+    document.addEventListener('click', (e) => {
+      const addBtn = e.target.closest('.add-to-cart');
+      if (addBtn) {
+        e.preventDefault();
+        const name = addBtn.dataset.name;
+        const price = parseInt(addBtn.dataset.price);
+        const img = addBtn.dataset.img;
+
+        cart.push({ name, price, img });
+        updateCartUI();
+        openCart();
+      }
+
+      const removeBtn = e.target.closest('.remove-from-cart');
+      if (removeBtn) {
+        e.preventDefault();
+        const index = parseInt(removeBtn.dataset.index);
+        cart.splice(index, 1);
+        updateCartUI();
+      }
+    });
+
+    // Initialize UI
+    updateCartUI();
   </script>
 </body>
 

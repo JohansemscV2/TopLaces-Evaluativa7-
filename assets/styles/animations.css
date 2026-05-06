@@ -1,18 +1,18 @@
 /* ============================================
    ANIMATIONS.CSS — Keyframes y clases animadas
-   Top Laces · 2026
+   Top Laces · 2026 (Liquid Style)
    ============================================ */
 
 /* ---------- Fade-up on scroll ---------- */
 .fade-up {
   opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 800ms var(--ease), transform 800ms var(--ease);
+  transform: translateY(30px) scale(0.98);
+  transition: opacity 900ms var(--ease), transform 900ms var(--ease);
 }
 
 .fade-up.in-view {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 /* Stagger delay helpers */
@@ -29,7 +29,7 @@
 
 /* ---------- Marquee ---------- */
 .marquee-track {
-  animation: marquee 24s linear infinite;
+  animation: marquee 30s linear infinite;
 }
 
 @keyframes marquee {
@@ -37,40 +37,41 @@
   to   { transform: translateX(-50%); }
 }
 
-/* ---------- Parallax hero subtle float ---------- */
-@keyframes heroFloat {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-12px); }
+/* ---------- Liquid Blobs (Background) ---------- */
+@keyframes liquidBlob1 {
+  0%, 100% { transform: translate(0, 0) scale(1); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+  33%      { transform: translate(30px, -50px) scale(1.1); border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+  66%      { transform: translate(-20px, 20px) scale(0.9); border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
 }
 
-.hero-float {
-  animation: heroFloat 6s var(--ease) infinite;
+@keyframes liquidBlob2 {
+  0%, 100% { transform: translate(0, 0) scale(1); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  33%      { transform: translate(-30px, 40px) scale(1.05); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  66%      { transform: translate(20px, -20px) scale(0.95); border-radius: 50% 50% 20% 80% / 20% 80% 50% 50%; }
 }
 
-/* ---------- Pulse glow ---------- */
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.3); }
-  50%      { box-shadow: 0 0 24px 8px rgba(59, 130, 246, 0.12); }
+.liquid-blob-1 {
+  animation: liquidBlob1 15s ease-in-out infinite alternate;
 }
 
-.pulse-glow {
-  animation: pulseGlow 3s ease-in-out infinite;
+.liquid-blob-2 {
+  animation: liquidBlob2 18s ease-in-out infinite alternate;
 }
 
 /* ---------- Slide in from left ---------- */
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-40px);
+    transform: translateX(-30px) scale(0.98);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) scale(1);
   }
 }
 
 .slide-in-left {
-  animation: slideInLeft 600ms var(--ease) both;
+  animation: slideInLeft 800ms var(--ease) both;
 }
 
 /* ---------- Reduced Motion ---------- */
@@ -80,8 +81,8 @@
   .soft-card,
   .tilt-card,
   .magnetic,
-  .hero-float,
-  .pulse-glow,
+  .liquid-blob-1,
+  .liquid-blob-2,
   .shimmer-card::after,
   .slide-in-left {
     animation: none !important;

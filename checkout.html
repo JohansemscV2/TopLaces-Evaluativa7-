@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout - Top Laces</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles/reset.css">
+  <link rel="stylesheet" href="assets/styles/global.css">
+  <link rel="stylesheet" href="assets/styles/components.css">
+  <link rel="stylesheet" href="assets/styles/animations.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#1D1D1F',
+            accent: '#000000',
+            muted: '#F5F5F7',
+            surface: '#F5F5F7',
+            paper: '#FFFFFF',
+            secondary: '#86868B'
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          },
+          boxShadow: {
+            subtle: '0 4px 20px rgba(0, 0, 0, 0.03)',
+            soft: '0 10px 40px rgba(0, 0, 0, 0.05)',
+            luxe: '0 30px 80px rgba(0, 0, 0, 0.1)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .input-field {
+      width: 100%;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(0,0,0,0.1);
+      background-color: #FFFFFF;
+      padding: 1rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    .input-field:focus {
+      border-color: #000;
+      box-shadow: 0 0 0 4px rgba(0,0,0,0.05);
+    }
+    .loader {
+      border: 3px solid rgba(0,0,0,0.1);
+      border-left-color: #000;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    
+    .glitch {
+      animation: glitch 2s linear infinite;
+    }
+    @keyframes glitch {
+      2%, 64% { transform: translate(2px,0) skew(0deg); }
+      4%, 60% { transform: translate(-2px,0) skew(0deg); }
+      62% { transform: translate(0,0) skew(5deg); }
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.5s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-dark bg-surface min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="w-full bg-paper border-b border-black/5 py-5 sticky top-0 z-40" id="checkout-header">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 hover:opacity-70 transition group">
+        <svg viewBox="0 0 64 64" class="h-8 w-8 text-dark transition-transform group-hover:scale-95" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="7" y="7" width="50" height="50" rx="16" stroke="currentColor" stroke-width="4" />
+          <path d="M20 22H44" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+          <path d="M22 32H42" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+          <path d="M24 42H40" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+        </svg>
+        <span class="text-xl font-extrabold tracking-tight">Top Laces</span>
+      </a>
+      <span class="text-xs font-bold uppercase tracking-widest text-secondary flex items-center gap-2 bg-dark/5 px-3 py-1.5 rounded-full">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Pago Seguro
+      </span>
+    </div>
+  </header>
+
+  <main class="flex-1 w-full max-w-6xl mx-auto px-6 py-12" id="main-content">
+    
+    <div id="checkout-step-1" class="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-20 items-start fade-in">
+      
+      <!-- Left: Form -->
+      <div>
+        <div class="mb-10">
+          <h1 class="text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">Finalizar Compra</h1>
+          <p class="text-secondary font-medium text-lg">Introduce tus datos de envío y facturación para completar el pedido.</p>
+        </div>
+
+        <form id="checkout-form" class="space-y-10">
+          <!-- Contacto -->
+          <section>
+            <h2 class="text-xl font-extrabold mb-5 flex items-center gap-3">
+              <span class="flex items-center justify-center w-7 h-7 rounded-full bg-dark text-paper text-sm">1</span>
+              Contacto
+            </h2>
+            <div class="space-y-4">
+              <div>
+                <input type="email" required placeholder="Correo electrónico" class="input-field">
+              </div>
+            </div>
+          </section>
+
+          <!-- Envío -->
+          <section>
+            <h2 class="text-xl font-extrabold mb-5 flex items-center gap-3">
+              <span class="flex items-center justify-center w-7 h-7 rounded-full bg-dark text-paper text-sm">2</span>
+              Envío
+            </h2>
+            <div class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input type="text" required placeholder="Nombre" class="input-field">
+                <input type="text" required placeholder="Apellidos" class="input-field">
+              </div>
+              <input type="text" required placeholder="Dirección completa" class="input-field">
+              <div class="grid grid-cols-3 gap-4">
+                <input type="text" required placeholder="Ciudad" class="input-field col-span-2">
+                <input type="text" required placeholder="CP" class="input-field">
+              </div>
+            </div>
+          </section>
+
+          <!-- Pago -->
+          <section>
+            <h2 class="text-xl font-extrabold mb-5 flex items-center gap-3">
+              <span class="flex items-center justify-center w-7 h-7 rounded-full bg-dark text-paper text-sm">3</span>
+              Pago
+            </h2>
+            <div class="p-6 rounded-2xl bg-white border border-black/10 shadow-sm relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-100 to-transparent rounded-bl-[100px] opacity-50 pointer-events-none"></div>
+              <div class="flex items-center gap-3 mb-6 text-sm font-bold relative z-10">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-dark"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                Tarjeta de crédito
+              </div>
+              <div class="space-y-4 relative z-10">
+                <input type="text" required placeholder="Número de tarjeta" class="input-field font-mono tracking-wider" maxlength="19">
+                <div class="grid grid-cols-2 gap-4">
+                  <input type="text" required placeholder="MM/AA" class="input-field text-center font-mono tracking-wider" maxlength="5">
+                  <input type="text" required placeholder="CVC" class="input-field text-center font-mono tracking-wider" maxlength="4">
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <button type="submit" id="submit-btn" class="group w-full rounded-2xl bg-dark py-5 text-base font-bold text-paper transition-all hover:scale-[1.01] hover:shadow-luxe flex items-center justify-center gap-3 mt-4 relative overflow-hidden">
+            <span class="relative z-10">Pagar pedido de forma segura</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="relative z-10 transition-transform group-hover:translate-x-1"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite]"></div>
+          </button>
+        </form>
+      </div>
+
+      <!-- Right: Order Summary -->
+      <div class="bg-white rounded-[2rem] p-8 lg:p-10 shadow-soft border border-black/5 sticky top-28">
+        <h2 class="text-2xl font-extrabold mb-8">Resumen del pedido</h2>
+        
+        <div id="order-items" class="space-y-5 max-h-[40vh] overflow-y-auto pr-2 mb-8" style="scrollbar-width: thin;">
+          <!-- Rendered by JS -->
+        </div>
+
+        <div class="border-t border-black/5 pt-8 space-y-4 text-sm font-medium">
+          <div class="flex justify-between text-secondary">
+            <span>Subtotal</span>
+            <span id="summary-subtotal" class="font-bold text-dark">0 €</span>
+          </div>
+          <div class="flex justify-between text-secondary">
+            <span>Envío Premium</span>
+            <span class="text-green-600 font-bold bg-green-50 px-2 py-0.5 rounded">Gratis</span>
+          </div>
+          <div class="flex justify-between items-end text-xl font-extrabold text-dark pt-6 border-t border-black/5">
+            <span>Total</span>
+            <span id="summary-total" class="text-3xl tracking-tight">0 €</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Processing Overlay -->
+    <div id="processing-overlay" class="hidden fixed inset-0 z-50 bg-surface/80 backdrop-blur-xl flex-col items-center justify-center transition-opacity opacity-0">
+      <div class="bg-white p-10 rounded-3xl shadow-luxe flex flex-col items-center text-center max-w-sm mx-4 transform scale-95 transition-transform duration-300" id="processing-card">
+        <div class="loader mb-6"></div>
+        <h2 class="text-2xl font-extrabold tracking-tight mb-2">Procesando pago...</h2>
+        <p class="text-secondary font-medium">Estableciendo conexión segura con el banco.</p>
+      </div>
+    </div>
+
+    <!-- Step 2: Joke -->
+    <div id="checkout-step-2" class="hidden min-h-[80vh] flex-col items-center justify-center text-center py-12 px-4 fade-in">
+      <div class="relative mb-12">
+        <img src="assets/img/Rey_pez.webp" alt="Rey Pez" class="w-64 h-64 sm:w-80 sm:h-80 rounded-[3rem] object-cover shadow-luxe animate-bounce relative z-10 border-4 border-white">
+        <div class="absolute inset-0 bg-red-500 blur-3xl opacity-20 animate-pulse rounded-full transform scale-150"></div>
+      </div>
+      <h2 class="text-5xl sm:text-7xl font-black tracking-tight text-dark mb-6 glitch uppercase">¡Órale mijo!</h2>
+      <p class="text-2xl sm:text-3xl font-bold text-dark mb-4">Creo que no se va a poder...</p>
+      <p class="text-lg text-secondary mb-12 max-w-lg font-medium mx-auto">Parece que tu tarjeta rebotó más fuerte que una pelota de basket en el Madison Square Garden.</p>
+      <a href="index.html" class="rounded-full bg-dark px-10 py-5 text-base font-bold text-paper transition hover:scale-105 shadow-luxe hover:shadow-2xl">
+        Volver a la cruda realidad
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    // Load cart
+    const cartData = localStorage.getItem('toplaces_cart');
+    let cart = [];
+    try { if(cartData) cart = JSON.parse(cartData); } catch(e) {}
+    
+    let total = 0;
+    const itemsContainer = document.getElementById('order-items');
+    
+    if(cart.length === 0) {
+      itemsContainer.innerHTML = `
+        <div class="flex flex-col items-center justify-center py-10 opacity-50">
+          <svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="1.5" fill="none" class="mb-4"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <p class="text-sm font-bold">El carrito está vacío.</p>
+        </div>`;
+      document.getElementById('submit-btn').disabled = true;
+      document.getElementById('submit-btn').classList.add('opacity-50', 'cursor-not-allowed');
+    } else {
+      cart.forEach(item => {
+        total += item.price;
+        itemsContainer.innerHTML += `
+          <div class="flex items-center gap-5">
+            <div class="w-20 h-20 rounded-2xl bg-surface border border-black/5 p-2 flex-shrink-0 flex items-center justify-center">
+              <img src="${item.img}" class="w-full h-full object-contain mix-blend-multiply drop-shadow-sm">
+            </div>
+            <div class="flex-1">
+              <h4 class="font-extrabold text-sm leading-tight text-dark mb-1">${item.name}</h4>
+              <p class="text-xs font-bold text-secondary">1 x ${item.price} €</p>
+            </div>
+            <div class="font-black text-base text-dark">
+              ${item.price} €
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    document.getElementById('summary-subtotal').textContent = total + ' €';
+    document.getElementById('summary-total').textContent = total + ' €';
+
+    const form = document.getElementById('checkout-form');
+    const step1 = document.getElementById('checkout-step-1');
+    const step2 = document.getElementById('checkout-step-2');
+    const overlay = document.getElementById('processing-overlay');
+    const header = document.getElementById('checkout-header');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Show loading dramatic effect
+      overlay.style.display = 'flex';
+      setTimeout(() => {
+        overlay.classList.remove('opacity-0');
+        document.getElementById('processing-card').classList.remove('scale-95');
+      }, 10);
+      
+      setTimeout(() => {
+        overlay.classList.add('opacity-0');
+        setTimeout(() => {
+          overlay.style.display = 'none';
+          step1.style.display = 'none';
+          header.style.display = 'none'; 
+          step2.style.display = 'flex';
+          window.scrollTo(0, 0);
+          localStorage.removeItem('toplaces_cart'); 
+        }, 300);
+      }, 3000);
+    });
+
+    // Format CC input visually
+    const inputs = document.querySelectorAll('.input-field');
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        if(input.placeholder === 'Número de tarjeta') {
+          let v = input.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+          let matches = v.match(/\d{4,16}/g);
+          let match = matches && matches[0] || '';
+          let parts = [];
+          for (let i=0, len=match.length; i<len; i+=4) {
+            parts.push(match.substring(i, i+4));
+          }
+          input.value = parts.length ? parts.join(' ') : v;
+        } else if(input.placeholder === 'MM/AA') {
+          let v = input.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+          if(v.length >= 2) {
+            input.value = v.substring(0,2) + '/' + v.substring(2,4);
+          } else {
+            input.value = v;
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
